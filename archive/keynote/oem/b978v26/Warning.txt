@@ -1,0 +1,20 @@
+		****** Warning ******
+The following procedure will update your system BIOS
+It is very important that you have booted the system
+without any drivers or memory resident programs loaded.
+
+**** Improper Use of upgrade will disable your system ****
+
+**** Futuretech assumes no responsibility and you have *****
+**** decided to upgrade the system BIOS at your own risk *****
+
+Make sure you are on AC power during this process.
+If you do not understand this process make sure you contact
+Technical support for help.
+
+You can abort this process 
+by pressing CTRL-C 
+or by powering off the system.
+
+**** This utility is intended for use on specified system only ****
+

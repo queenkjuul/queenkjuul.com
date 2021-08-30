@@ -1,0 +1,669 @@
+; Copyright (c) 1993-1995 Microsoft Corporation
+
+[Version]
+LayoutFile=Layout.inf
+Signature="$CHICAGO$"
+Class=PCMCIA
+ClassGUID={4d36e977-e325-11ce-bfc1-08002be10318}
+Provider=%MS%
+
+;
+;   Information for installing the PCMCIA class
+;
+[ClassInstall]
+AddReg=ClassAddReg
+
+[ClassAddReg]
+HKR,,,,%ClassName%
+HKR,,Installer,,MSPCIC.dll
+HKR,,Icon,,0
+HKR,,EnumPropPages,,"MSPCIC.dll, EnumClassPropPages"
+
+;
+;   List of manufacturers and devices
+;
+[Manufacturer]
+%GenDrvs%=Generic
+%IntelMfg%=Intel
+%DatabookMfg%=DATABOOK
+%VLSIMfg%=VLSI
+%CompaqMfg%=Compaq
+%CirrusMfg%=Cirrus
+%VademMfg%=Vadem
+%MXTR%=Maxtor
+%SCM%=SCM
+%TI%=TI
+%Toshiba%=Toshiba
+%OPTi%=OPTi
+%Ricoh%=Ricoh
+
+[Generic]
+%GenPCIC%=PCIC,*PNP0E00
+
+[Intel]
+%IntelProto%=PCIC,,*PNP0E00
+%IntelPCI%=PCIC,PCI\VEN_8086&DEV_1221
+
+[Compaq]
+%*CPQA0DE.DeviceDesc%=VLELC,*CPQA0DE,*PNP0E02
+
+[DATABOOK]
+%*DBK0000.DeviceDesc%=DBK0000,*DBK0000
+%*DBK0402.DeviceDesc%=DBK0402,*DBK0402
+%*DBK0204.DeviceDesc%=DBK0402,*DBK0204
+%*DBK1402.DeviceDesc%=DBK1402,*DBK1402
+%*DBK0214.DeviceDesc%=DBK1402,*DBK0214
+;%PCI\VEN_10B3&DEV_3106.DeviceDesc%=CARDBUS, PCI\VEN_10B3&DEV_3106
+
+[Maxtor]
+%MXTR.Deskrunner%=DBK0000,*DBK0000
+
+[VLSI]
+%*PNP0E02.DeviceDesc%=VLELC,*PNP0E02
+
+[Cirrus]
+%Cirrus.DeviceDesc%=PCIC,*PNP0E01,*PNP0E00
+%PCI\VEN_1013&DEV_1100.DeviceDesc%=PCIC, PCI\VEN_1013&DEV_1100
+;%PCI\VEN_1013&DEV_1110.DeviceDesc%=CARDBUS, PCI\VEN_1013&DEV_1110
+
+[Vadem]
+%Vadem.DeviceDesc%=PCIC,,*PNP0E00
+%*VDM0469.DeviceDesc%=PCIC,*VDM0469
+
+[SCM]
+%SCM.DeviceDesc%=PCIC,,*PNP0E00
+%*SCM0469.DeviceDesc%=PCIC,*SCM0469
+
+[Toshiba]
+%PCI\VEN_1179&DEV_060A.DeviceDesc%=TOPIC, PCI\VEN_1179&DEV_060A
+
+[TI]
+%PCI\VEN_104C&DEV_AC12.DeviceDesc%=CARDBUS, PCI\VEN_104C&DEV_AC12
+%PCI\VEN_104C&DEV_AC15.DeviceDesc%=CARDBUS, PCI\VEN_104C&DEV_AC15
+%PCI\VEN_104C&DEV_AC13.DeviceDesc%=CARDBUS, PCI\VEN_104C&DEV_AC13
+%PCI\VEN_104C&DEV_AC16.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC16
+%PCI\VEN_104C&DEV_AC17.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC17
+%PCI\VEN_104C&DEV_AC19.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC19
+%PCI\VEN_104C&DEV_AC1A.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC1A
+%PCI\VEN_104C&DEV_AC1C.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC1C
+%PCI\VEN_104C&DEV_AC1D.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC1D
+%PCI\VEN_104C&DEV_AC1B.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC1B
+%PCI\VEN_104C&DEV_AC1E.DeviceDesc%=NCARDBUS, PCI\VEN_104C&DEV_AC1E
+
+[OPTi]
+;%PCI\VEN_1045&DEV_C824.DeviceDesc%=CARDBUS, PCI\VEN_1045&DEV_C824
+;%PCI\VEN_1045&DEV_C814.DeviceDesc%=CARDBUS, PCI\VEN_1045&DEV_C814
+
+[Ricoh]
+;%PCI\VEN_1180&DEV_0466.DeviceDesc%=CARDBUS, PCI\VEN_1180&DEV_0466
+
+;
+;   Databook install section
+;
+[DBK0000]
+CopyFiles=CSCopyFiles,@dbkvssd.vxd
+AddReg=CSReg,DatabookReg
+LogConfig=*DBK0000.LC0,*DBK0000.LC1,*DBK0000.LC2,*DBK0000.LC3
+
+[DBK0000.HW]
+AddReg=SSReg
+
+[*DBK0000.Det]
+AddReg=ForceCopy
+LogConfig=*DBK0000.LC0,*DBK0000.LC1,*DBK0000.LC2,*DBK0000.LC3
+
+[*DBK0000.LC0]
+ConfigPriority=DESIRED
+IOConfig=20@200-3FF%FFE0(3ff::)
+IRQConfig=3,4,5,7,10,11,14
+
+[*DBK0000.LC1]
+ConfigPriority=DESIRED
+IOConfig=10@200-3FF%FFF0(3ff::)
+IRQConfig=3,4,5,7,10,11,14
+
+[*DBK0000.LC2]
+ConfigPriority=NORMAL
+IOConfig=20@200-3FF%FFE0(3ff::)
+
+[*DBK0000.LC3]
+ConfigPriority=NORMAL
+IOConfig=10@200-3FF%FFF0(3ff::)
+
+[DBK0402]
+CopyFiles=CSCopyFiles,@dbkvssd.vxd
+AddReg=CSReg,DatabookReg,DBK0402.Reg
+LogConfig=*DBK0000.LC0,*DBK0000.LC1,*DBK0000.LC2,*DBK0000.LC3
+
+[DBK0402.HW]
+AddReg=SSReg
+
+[DBK0402.Reg]
+HKR,Override,0000,1,00,04,00,00,00,00,00,00,20,00,00,00,02,00,00,00,01,00,0c,00,00,00,00,00,00,00,00,00,f0,ff,10,00,00,01,ff,ff,00,00,00,00,10,00,00,00,04,00,00,00,00,00,00,00,fc,cc,00,00,00,00,00,00
+
+[DBK1402]			;DB86184
+CopyFiles=CSCopyFiles,@dbkvssd.vxd
+AddReg=CSReg,DatabookReg
+LogConfig=*DBK0000.LC0,*DBK0000.LC1,*DBK0000.LC2,*DBK0000.LC3
+
+[DBK1402.HW]
+AddReg=SSReg
+
+[DatabookReg]
+HKR,,Driver,,"DbkVssD.vxd"
+HKR,,Properties,,"MSPCIC.dll, PCICProperties"
+
+;
+;   PCIC or compatible controller
+;
+[PCIC]
+CopyFiles=CSCopyfiles, @socketsv.vxd
+AddReg=CSReg, PCICReg
+LogConfig=*PNP0E00.LC0,*PNP0E00.LC1,*PNP0E00.LC2,*PNP0E00.LC3,*PNP0E00.LC4,*PNP0E00.LC5
+
+[PCIC.HW]
+AddReg=SSReg
+
+[PCIC.PosDup]
+*PNP0E00
+
+[PCICReg]
+HKR,,Driver,,"SocketSv.vxd"
+HKR,,Properties,,"MSPCIC.dll, PCICProperties"
+
+[*PNP0E00.Det]
+AddReg=ForceCopy
+LogConfig=*PNP0E00.LC0,*PNP0E00.LC1,*PNP0E00.LC2,*PNP0E00.LC3,*PNP0E00.LC4,*PNP0E00.LC5
+
+[*PNP0E00.LC0]
+ConfigPriority=DESIRED
+IOConfig=3e0-3e1(3ff::)
+IRQConfig=3,4,5,7,9,10,11,14
+
+[*PNP0E00.LC1]
+ConfigPriority=NORMAL
+IOConfig=3e0-3e1(3ff::)
+
+[*PNP0E00.LC2]
+ConfigPriority=DESIRED
+IOConfig=3e0-3e1(3ff::)
+IOConfig=3e2-3e3(3ff::)
+IRQConfig=3,4,5,7,9,10,11,14
+
+[*PNP0E00.LC3]
+ConfigPriority=NORMAL
+IOConfig=3e0-3e1(3ff::)
+IOConfig=3e2-3e3(3ff::)
+
+[*PNP0E00.LC4]
+ConfigPriority=HARDRECONFIG
+IOConfig=2@100-3FF%FFFE(3ff::)
+IRQConfig=3,4,5,7,9,10,11,14
+
+[*PNP0E00.LC5]
+ConfigPriority=HARDRECONFIG
+IOConfig=2@100-3FF%FFFE(3ff::)
+
+;
+;   VLSI ELC controller
+;
+[VLELC]
+CopyFiles=CSCopyfiles, @socketsv.vxd
+AddReg=CSReg, PCICReg, VLSIReg
+LogConfig=*PNP0E02.LC0,*PNP0E02.LC1,*PNP0E02.LC2,*PNP0E02.LC3
+
+[VLELC.HW]
+AddReg=SSReg
+
+[VLELC.PosDup]
+*PNP0E02
+
+[VLSIReg]
+HKR,,PCICIRQMap,3,00,00,00,03,04,05,0F,07,00,09,0A,0B,0C,00,0E,00
+;HKR,,PCICOptions,3,B8,5E,00,00
+
+[*PNP0E02.Det]
+AddReg=ForceCopy
+LogConfig=*PNP0E02.LC0,*PNP0E02.LC1,*PNP0E02.LC2,*PNP0E02.LC3
+
+[*PNP0E02.LC0]
+ConfigPriority=DESIRED
+IOConfig=3e0-3e1(3ff:8000:)
+IRQConfig=3,4,5,7,9,10,11,14
+
+[*PNP0E02.LC1]
+ConfigPriority=DESIRED
+IOConfig=3e0-3e1(3ff:8000:)
+IOConfig=3e4-3e5(3ff:8000:)
+IRQConfig=3,4,5,7,9,10,11,14
+
+[*PNP0E02.LC2]
+ConfigPriority=NORMAL
+IOConfig=3e0-3e1(3ff:8000:)
+
+[*PNP0E02.LC3]
+ConfigPriority=NORMAL
+IOConfig=3e0-3e1(3ff:8000:)
+IOConfig=3e4-3e5(3ff:8000:)
+
+;
+; Card bus
+;
+[CARDBUS]
+CopyFiles=CSCopyfiles, @cbss.vxd
+AddReg=CSReg, CARDBUSReg
+
+[NCARDBUS]
+CopyFiles=CSCopyfiles, @cbss.vxd
+AddReg=CSReg, CARDBUSReg, NEWTIREG
+
+[NEWTIREG]
+HKR,,CBSSCompatID, 3, 4c, 10, 15, ac
+
+[NCARDBUS.HW]
+AddReg=SSReg
+
+[TOPIC]
+CopyFiles=CSCopyfiles, @cbss.vxd
+AddReg=CSReg, CARDBUSReg, TOPICReg
+
+[CARDBUS.HW]
+AddReg=SSReg
+
+[TICARDBUS.HW]
+AddReg=SSReg
+
+[TOPIC.HW]
+AddReg=SSReg
+
+[CARDBUSReg]
+HKR,,Driver,,"cbss.vxd"
+
+[CARDBUS.PosDup]
+*PNP0E00
+
+[TOPIC.PosDup]
+*PNP0E00
+
+[TOPICReg]
+HKR,,CBSSIRQMap,3,00,00,00,03,04,05,00,07,00,09,0A,0B,0C,00,0E,0F
+
+;
+;   Card services information
+;
+[CSCopyfiles]
+PCCard.vxd
+csmapper.sys
+carddrv.exe
+SRAMMTD.VXD
+FLS1MTD.VXD
+FLS2MTD.VXD
+
+[CSReg]
+HKR,,DevLoader,,"PCCARD.vxd"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,"SysTray.Exe"
+
+;
+;   Socket Services information
+;
+[SSReg]
+HKR,,ConfigFlags,3,01,00,00,00
+
+;
+;   Information about where the files are
+;
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+
+
+[ForceCopy]
+HKR,,NoSetupUI,,1
+
+;
+;   Config.Sys drivers to remove
+;
+[ConfigSysDrivers]
+;
+; Databook
+;
+CARDSOCK.SYS
+CTALKCS.EXE
+CARDTALK.SYS
+ARIMATN.SYS
+CARDTALK.EXE
+
+;
+; system soft
+;
+SS365SL.EXE
+SS365SLB.EXE
+CS.EXE
+SSDBOOK.EXE
+SSCIRRUS.EXE
+SSVLSI.EXE
+CIC.EXE
+MS-FLASH.SYS
+RALLOC.EXE
+SCARD29.EXE
+SRAMDRV.EXE
+S_IDE.EXE
+CARDID.EXE
+ATAINIT.EXE
+ATADRV.EXE
+CSALLOC.EXE
+CARDINFO.EXE
+SS365LP.EXE
+SSVADEM.EXE
+SSIBM720.EXE
+MTDDRV.EXE  	
+MTSRAM.EXE  	
+CARD_BAP.EXE
+PCIC.EXE
+MEMDRV.EXE
+DBLFLASH.EXE
+SS6941.EXE
+SS6942.EXE
+SSPPEC.EXE
+MTAA.EXE
+MTAB.EXE
+MTI1.EXE
+MTI2P.EXE
+MTAMP.EXE
+SSMSFLSH.EXE
+FTL.EXE
+CS_APM.EXE
+CARDLITE.EXE
+
+;
+; phoenix/toshiba
+;
+CACCESS.SYS
+PCMP615B.EXE
+PCMCS.EXE
+PCMMTD.EXE
+PCMATA.SYS
+PCMATADD.SYS
+PCMSCD.EXE
+PCMFDD.EXE
+PCMFFCS.EXE
+PCMSS.EXE
+CNFIGNAM.EXE
+PCM.EXE
+PCMRMAN.EXE 
+PCMRMAN.SYS
+PCMSSCL.EXE 	
+PCMSSDB.EXE 	
+PCMSSIT.EXE 	
+PCMSSRC.EXE 
+PCMSSVD.EXE 
+PCMWARN.EXE 
+
+;
+; award
+;
+PCSS.EXE
+SSPCIC.EXE     
+SSPHIC.EXE
+SSTACT.EXE     
+SSTCIC.EXE
+SSTPP163.EXE
+PCCS.EXE
+PCRM.EXE       
+PCENABLE.EXE   
+PCDISK.EXE     
+PCPREP.EXE     
+PCCARD.EXE
+SS82086.SYS
+PCDIRTY.EXE
+DOSCARD.EXE
+TOPIC.SYS
+
+;
+; ibm
+;
+IBMDOSCS.SYS
+PCMCIA.SYS
+IBMDSS01.SYS
+IBM2SS01.SYS
+DICRMU01.SYS
+ICRMU01.SYS
+$ICPMDOS.SYS
+$ICPMOS2.SYS
+PCMCIAON.EXE
+PCMCIAOF.EXE
+EZPLAY.EXE
+EZPLAYW.EXE
+AUTODRV.SYS
+AUTODRV2.SYS
+SRAMDRV2.SYS
+DISKDRV.SYS
+IBM2SS02.SYS
+IBM2SS03.SYS
+IBMDSS02.SYS
+IBMDSS03.SYS
+SS2PCIC1.SYS
+SSDPCIC1.SYS
+SS2TCIC1.SYS
+SSDTCIC1.SYS
+VPCMCIA.SYS
+IBMDOSCS.SYS
+IBMDSCSE.SYS
+RMUDOSAT.SYS
+PCM2FLSH.SYS
+PAWATA.SYS
+PAWATAS.SYS
+PAWATASF.SYS
+FLSH2MTD.SYS
+PCMSSDIF.SYS
+FLSHDMTD.SYS
+EZLAUNCH.EXE
+
+
+;
+; TDK
+;
+TDKMODEM.EXE
+MODINSTL.EXE
+MODACTIV.EXE
+SET3300.COM
+TDKCARD.EXE
+SSDOS.COM
+
+;
+; HP
+;
+OBSS.EXE
+
+;
+; Enablers
+;
+ENABLEEA.EXE
+SKTNDIS.EXE
+MA460.SYS
+cendis.exe
+b8895.com
+modem.exe
+PCMSM.COM
+ETHERNET.SYS
+POINTETH.SYS
+TOSHETH.SYS
+PCMDMCS.COM
+PCMNICCS.DOS
+CONXDRV.EXE
+PMODEM.SYS
+PCMCIA1.SYS
+PCMCIA2.SYS
+SETPCMC.EXE
+PCMCIA.EXE
+S-PCMCIA.EXE
+T-PCMCIA.EXE
+MSETUP.EXE
+PRR.EXE     
+MODCFG.EXE  
+ADAPTER.EXE 	
+SS365SL.EXE 	
+SSDBOOK.EXE 	
+CS.EXE      
+CSALLOC.EXE 	
+PCMDM.COM   
+ECCTEST.EXE 	
+POINTETH.SYS	
+TOSHETH.SYS 	
+SHARPETH.SYS
+PCMDM.DOS   	
+NICESS.COM
+VMISS.SYS
+FJTMAC.DOS
+PSETUP.EXE
+POINTETH.SYS
+TOSHTR.SYS         
+TOKENRNG.SYS    
+POINTTR.SYS        
+PDLTOK.DOS
+PCMDMCS.COM
+PCMNICCS.DOS
+SETMHZ.EXE
+NMCMSSND.SYS
+SWAPBOX.SYS
+1130_XX.SYS
+
+;
+;   Autoexec.Bat drivers to remove
+;
+[AutoexecBatDrivers]
+ENABLEEA
+SKTNDIS
+SETMHZ
+CS_APM
+CECFG
+OBSS
+WJSSENAB
+CEMCFG
+CE2CFG
+CXCFG
+CFG2INI
+
+;
+;   System.Ini drivers to remove
+;
+[SystemIniDrivers]
+;
+; compaq
+;
+cs.386
+cpqevent.386
+ssvrdd.386
+ssvcd311.386
+pccard.386
+pccardrm.386
+
+;
+; Phoenix
+;
+PCMVCD.386
+
+;
+; SystemSoft
+;
+cs_pmc.386
+vpmc.386
+NMCMSSND.386
+
+;
+;   System.Ini drivers= DLLs to remove
+;
+[SystemIniDriversLine]
+sswincs.dll
+nmcmssnd.drv
+
+;
+; SystemSoft
+;
+cardpwrd.drv
+pmc.drv
+
+
+;
+;   Win.Ini run= EXEs to remove
+;
+[WinIniRunLine]
+cpqevent
+pccard
+cardview
+
+[ControlFlags]
+ExcludeFromSelect=PCI\VEN_8086&DEV_1221
+ExcludeFromSelect=PCI\VEN_1013&DEV_1100
+ExcludeFromSelect=PCI\VEN_1179&DEV_060A
+CopyFilesOnly=*DBK0402
+CopyFilesOnly=*DBK1402
+CopyFilesOnly=*DBK0214
+CopyFilesOnly=*CPQA0DE
+CopyFilesOnly=*VDM0469
+CopyFilesOnly=*SCM0469
+
+[Strings]
+ClassName="PCMCIA socket"
+MS="Microsoft"
+
+;
+;   Manufacturer name strings
+;
+GenDrvs="(Standard PCMCIA drivers)"
+IntelMfg="Intel"
+DatabookMfg="Databook"
+VLSIMfg="VLSI"
+CompaqMfg="Compaq"
+CirrusMfg="Cirrus Logic"
+VademMfg="Vadem"
+MXTR="Maxtor"
+SCM="SCM SwapBox"
+Toshiba="Toshiba"
+TI="Texas Instruments"
+OPTi="OPTi"
+Ricoh="RICOH"
+
+;
+;   Device Decription strings
+;
+GenPCIC="PCIC or compatible PCMCIA controller"
+IntelProto="Intel PCIC compatible PCMCIA controller"
+Cirrus.DeviceDesc="Cirrus Logic PCIC compatible PCMCIA controller"
+PCI\VEN_1013&DEV_1100.DeviceDesc="Cirrus Logic PCIC compatible PCI to PCMCIA bridge"
+Vadem.DeviceDesc="Vadem PCIC compatible PCMCIA controller"
+*VDM0469.DeviceDesc="Vadem PCIC compatible Plug and Play PCMCIA controller"
+SCM.DeviceDesc="SCM SwapBox Family PCMCIA controller"
+*SCM0469.DeviceDesc="SCM SwapBox Family Plug and Play PCMCIA controller"
+
+;
+;   Strings with "*PNPxxxx" are descriptions used by hardware detection
+;   for PCMCIA controllers
+;
+*PNP0E00.DeviceDesc="PCIC Compatible PCMCIA Controller"
+*PNP0E02.DeviceDesc="VLSI PCIC Compatible PCMCIA Controller with ELC Extensions"
+*DBK0000.DeviceDesc="Databook ISA PCMCIA Controller"
+*DBK0402.DeviceDesc="Databook Plug and Play PCMCIA Controller based on DB86084"
+*DBK0204.DeviceDesc="Databook Plug and Play PCMCIA Controller based on DB86084"
+*DBK1402.DeviceDesc="Databook Plug and Play PCMCIA Controller based on DB86184"
+*DBK0214.DeviceDesc="Databook Plug and Play PCMCIA Controller based on DB86184"
+PCI\VEN_10B3&DEV_3106.DeviceDesc="Databook DB87144 CardBus Controller"
+MXTR.Deskrunner="MobileMax Deskrunner ISA PCMCIA Controller"
+*CPQA0DE.DeviceDesc="Compaq PCMCIA Controller"
+PCI\VEN_8086&DEV_1221.DeviceDesc="Intel 82092AA PCI to PCMCIA Bridge"
+IntelPCI="Intel PCI to PCMCIA Bridge"
+PCI\VEN_1179&DEV_060A.DeviceDesc="Toshiba ToPIC95 CardBus Controller"
+PCI\VEN_104C&DEV_AC12.DeviceDesc="Texas Instruments PCI-1130 CardBus Controller"
+PCI\VEN_104C&DEV_AC15.DeviceDesc="Texas Instruments PCI-1131 CardBus Controller"
+PCI\VEN_104C&DEV_AC16.DeviceDesc="Texas Instruments PCI-1250 CardBus Controller"
+PCI\VEN_104C&DEV_AC17.DeviceDesc="Texas Instruments PCI-1220 CardBus Controller"
+PCI\VEN_104C&DEV_AC19.DeviceDesc="Texas Instruments PCI-1221 CardBus Controller"
+PCI\VEN_104C&DEV_AC1A.DeviceDesc="Texas Instruments PCI-1210 CardBus Controller"
+PCI\VEN_104C&DEV_AC1C.DeviceDesc="Texas Instruments PCI-1225 CardBus Controller"
+PCI\VEN_104C&DEV_AC1D.DeviceDesc="Texas Instruments PCI-1251 CardBus Controller"
+PCI\VEN_104C&DEV_AC1B.DeviceDesc="Texas Instruments PCI-1450 CardBus Controller"
+PCI\VEN_104C&DEV_AC1E.DeviceDesc="Texas Instruments PCI-1211 CardBus Controller"
+PCI\VEN_104C&DEV_AC13.DeviceDesc="Texas Instruments PCI-1031 PCMCIA Controller"
+PCI\VEN_1045&DEV_C824.DeviceDesc="OPTi 82C824 CardBus Controller"
+PCI\VEN_1045&DEV_C814.DeviceDesc="OPTi 82C814 Docking Controller"
+PCI\VEN_1013&DEV_1110.DeviceDesc="Cirrus Logic PD6832 CardBus Controller"
+PCI\VEN_1180&DEV_0466.DeviceDesc="Ricoh RL5C466 CardBus Controller"

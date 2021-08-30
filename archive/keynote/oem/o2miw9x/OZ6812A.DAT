@@ -1,0 +1,43 @@
+# This o2init data file is for the O2Micro OZ6812 Cardbus Controller
+
+verbose                 # show all output
+
+pcifind 1217 6872 0     # find the OZ6812 device?
+pcicompareb 8 02        # is this a 12A?
+
+pciwrited 40 68121217   # set sub vendor and product ID (write once register)
+
+pciwrited 44 3E0        # set port base to 3e0 (Pcmcia Legacy Address)
+pciord 4 7              # enable I/O and Memoy space (after setting address)
+
+###################################
+##  THE FOLLOWING ARE BUG FIXES  ##
+###################################
+pciandb D4 FD           # disable Read Prefetch
+
+ob 3e0 3E               # disable "Address 00" patch
+andb 3e1 DF             # /
+
+##########################################
+##  THE FOLLOWING ARE FOR SYSTEM SETUP  ##
+##########################################
+# O2MICRO MODE REGISTERS 38h & 39h (A & B) moved to 26h, 2eh!!!!!!!!
+ob 3e0 2e               # set "365SL Step C" mode (bit 1 = 0, bit 0 = 1)
+ob 3e1 01               # /
+
+ob 3e0 3                # enable RI# --> RI_OUT# function
+orb 3e1 80              # /
+ob 3e0 2E               # enable RI_OUT# function
+orb 3e1 80              # /
+
+ob 3e0 3B               # set PCI+ISA mode
+ob 3e1 C3               # /
+
+ob 3e0 3E               # enable SKT_ACTV output
+orb 3e1 10              # /
+
+pciwrited 8C 0CCB9C52   # MF6=IRQ12, MF5=SKT_LED, MF4=IRQ11, MF3=IRQ9,
+                        # MF2=RI_OUT#, MF1=IRQ5, MF0=INTA#
+
+pciord D0 00800100      # PCI_VCC=5V, SKTA_ACTV=enable
+pciorb D0 80            # enable NEC mode (I/O offset mode)

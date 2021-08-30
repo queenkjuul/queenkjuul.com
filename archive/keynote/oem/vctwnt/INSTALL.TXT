@@ -1,0 +1,77 @@
+     Windows NT 4.0 -- Chips And Technologies Driver Installation Procedure
+   --------------------------------------------------------------------------  
+
+
+Step 1: Click the Start button, then go to Settings and click on Control Panel.
+	
+        Click on the Display icon to start the Display Properties window. 
+	
+	Click on the Settings tab, and then click on Display Type.
+	
+	In the Change Display Type window, click on Change in Adapter Type.
+	This will bring up the Select Device Window.
+	
+
+Step 2: Chips & Technologies display drivers can be installed from a
+	manufacturer supplied Installation Diskette, or from the default
+        drivers provided on the Windows NT 4.0 CDROM.
+	
+        Installing from Manufacturer supplied diskette
+	----------------------------------------------
+
+        In the Change Display window, click on Have Disk. Follow the directions
+        on the screen to supply the directory where the Windows NT driver files
+        are located.  Then select OK, or press enter.
+	
+        Select Chips Video Accelerator from Display list provided, then click
+	OK or press enter.
+	
+	You will then see a warning panel about Third Party Drivers. Click on
+	Yes to finish the install.
+	
+	Once the installation is complete, the system must be shut down and 
+	restarted for the new drivers to take effect.
+
+
+        Installing Drivers provided on NT 4.0 CDROM 
+	----------------------------------------------
+
+        In the Change Display window, from the list of Manufacturers, select
+	Chips & Technologies. In the Display Window, select Chips & Technologies
+	Video Accelerator, then click OK or press enter.
+ 
+	You will then see a warning panel about Third Party Drivers. Click on
+	Yes to finish the install.
+	
+        Follow the directions on the screen to supply the directory where the
+	Windows NT driver files  are located.  Then select OK, or press enter.
+	
+	Once the installation is complete, the system must be shut down and 
+	restarted for the new drivers to take effect.
+
+
+Step 3:	When the system has restarted, the default graphics mode ( usually
+	640x480x256color ) has been automatically selected. 
+
+        Click the Start button, then go to Settings and click on Control Panel.
+	
+        Click on the Display icon to start the Display Properties window. 
+	
+	Click on the Settings tab.
+	
+	A new screen setting can be selected using either of the following
+        methods:
+
+          1:  Use the slide-bar in the Desktop Area to select new setting.
+	    
+	  2:  Click on List All Modes. From the list provided, select a new  
+	      setting, then click OK or press enter.
+	      
+	      
+        Click on Test to test the newly selected graphics mode. Follow the
+	instructions given on the screen. A test screen should appear, followed
+        by the Testing Mode window. Click on Yes to continue. Click on Apply to
+        switch to the new graphics mode.
+	
+	Graphics modes are changed dynamically on NT 4.0, so you do not meed to
+	shutdown and restart for the new screen settings to work.

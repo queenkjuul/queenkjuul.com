@@ -1,0 +1,178 @@
+;****************************************************************************
+;                                                                           *
+; Copyright (C) 1995  Chips And Technologies.				    *
+;                                                                           *
+;****************************************************************************
+
+; INF file for Sample Win95 display driver
+; Copyright 1995, Chips And Technologies, Inc.
+
+[version]
+Class=DISPLAY
+signature="$CHICAGO$"
+Provider=%Mfg%
+
+[DestinationDirs]
+DefaultDestDir  = 11	; LDID_SYS
+Driver.Copy = 11
+WindowsDirFiles = 10
+
+[SourceDisksNames]
+1="Chips And Technologies Windows 95 Driver Disk",,0
+
+[SourceDisksFiles]
+chips95.drv=1
+chips95.vxd=1
+chipsdsp.dat=1
+chipsdsp.dll=1
+chipsdsp.hlp=1
+chipsdsp.ico=1
+;gammacrt.exe=1
+chpstart.exe=1
+chipschs.hlp=1
+chipscht.hlp=1
+chipsdeu.hlp=1
+chipsdan.hlp=1
+chipsesp.hlp=1
+chipsfin.hlp=1
+chipsfra.hlp=1
+chipsita.hlp=1
+chipsjpn.hlp=1
+;chipskor.hlp=1
+chipsnld.hlp=1
+chipsnon.hlp=1
+chipsptb.hlp=1
+chipssve.hlp=1
+chtdd32.dll=1
+chipsvpm.dll=1
+chipsmm.dat=1
+
+[Manufacturer]
+%Mfg%=Mfg
+
+[Mfg]
+%*PNP0931.DeviceDesc%=ChipsAcc, *PNP0931		; Accelerator
+%PCI\VEN_102C&DEV_00D8.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00D8
+%PCI\VEN_102C&DEV_00B8.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00B8
+%PCI\VEN_102C&DEV_00DC.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00DC
+%PCI\VEN_102C&DEV_00E0.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00E0
+%PCI\VEN_102C&DEV_00E4.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00E4
+%PCI\VEN_102C&DEV_00E5.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00E5
+%PCI\VEN_102C&DEV_00F0.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00F0
+%PCI\VEN_102C&DEV_00F4.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00F4
+%PCI\VEN_102C&DEV_00F5.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00F5
+%PCI\VEN_102C&DEV_00C0.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_00C0
+%PCI\VEN_102C&DEV_01E0.DeviceDesc%=ChipsAcc,PCI\VEN_102C&DEV_01E0
+
+[ChipsAcc]
+CopyFiles=Driver.Copy,WindowsDirFiles
+DelReg=Prev.DelReg
+AddReg=Driver.AddReg
+UpdateInis=CNT.UpdateInis
+
+[Driver.Copy]
+chips95.drv
+chips95.vxd
+chipsdsp.dat
+chipsdsp.dll
+chipsdsp.hlp
+chipsdsp.ico
+;gammacrt.exe
+chpstart.exe
+chipschs.hlp
+chipscht.hlp
+chipsdeu.hlp
+chipsdan.hlp
+chipsesp.hlp
+chipsfin.hlp
+chipsfra.hlp
+chipsita.hlp
+chipsjpn.hlp
+;chipskor.hlp
+chipsnld.hlp
+chipsnon.hlp
+chipsptb.hlp
+chipssve.hlp
+chtdd32.dll
+chipsvpm.dll
+chipsmm.dat
+
+[WindowsDirFiles]
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+
+[Driver.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,chips95.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,chips95.vxd
+HKR,DEFAULT,RefreshRate,,-1
+HKR,DEFAULT,DDC,,1
+HKR,DEFAULT,ExtModeSwitch,,0
+;HKR,DEFAULT,ResumeReset,,0
+
+; These two lines mean use the VGA drivers for 16 colors
+;HKR,"MODES\4\640,480",drv,,vga.drv
+;HKR,"MODES\4\640,480",vxd,,*vdd
+
+; These 6 lines mean that we have the Chips drivers for 16 colors
+HKR,"MODES\4\640,480"
+HKR,"MODES\4\800,600"
+;HKR,"MODES\4\1024,600"
+HKR,"MODES\4\1024,768"
+HKR,"MODES\4\1280,1024"
+HKR,"MODES\4\1600,1200"
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,600"
+HKR,"MODES\8\1024,768"
+;HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,600"
+HKR,"MODES\24\1024,768"
+HKR,"MODES\24\1280,1024"
+
+HKCR,"CLSID\%CLIDDSP%",,,"CHIPSDSP"
+HKCR,"CLSID\%CLIDDSP%\InProcServer32",,,"chipsdsp.dll"
+HKCR,"CLSID\%CLIDDSP%\InProcServer32","ThreadingModel",,"Apartment"
+HKLM,"%CURRENT%\%DSPPSH%",,,"ChipsDsp"
+HKLM,"%CURRENT%\%DSPPSH%\ChipsDsp",,,"%CLIDDSP%"
+HKLM,"%CURRENT%\Shell Extensions\Approved",,,"%CLIDDSP%"="CHIPSDSP"
+HKLM,"%CURRENT%\Run","CHIPSStart",,"CHPSTART.EXE"
+
+[CNT.UpdateInis]
+system.ini,drivers,,"vpm=chipsvpm.dll",0
+
+[Strings]
+Mfg="Chips And Technologies, Inc."
+*PNP0931.DeviceDesc="Chips And Technologies, Accelerator (new)"
+PCI\VEN_102C&DEV_00D8.DeviceDesc="Chips and Tech. 65545 PCI (new)"
+PCI\VEN_102C&DEV_00B8.DeviceDesc="Chips and Tech. 64310 PCI (new)"
+PCI\VEN_102C&DEV_00DC.DeviceDesc="Chips and Tech. 65548 PCI (new)"
+PCI\VEN_102C&DEV_00E0.DeviceDesc="Chips and Tech. 65550 PCI"
+PCI\VEN_102C&DEV_00E4.DeviceDesc="Chips and Tech. 65554 PCI"
+PCI\VEN_102C&DEV_00E5.DeviceDesc="Chips and Tech. 65555 PCI"
+PCI\VEN_102C&DEV_00F0.DeviceDesc="Chips and Tech. 68554 PCI(Rev0)"
+PCI\VEN_102C&DEV_00F4.DeviceDesc="Chips and Tech. 68554 PCI"
+PCI\VEN_102C&DEV_00F5.DeviceDesc="Chips and Tech. 68555 PCI"
+PCI\VEN_102C&DEV_00C0.DeviceDesc="Chips and Tech. 69000 PCI"
+PCI\VEN_102C&DEV_01E0.DeviceDesc="Chips and Tech. 65560 PCI"
+CURRENT="SOFTWARE\Microsoft\Windows\CurrentVersion"
+DSPPSH="Controls Folder\Display\shellex\PropertySheetHandlers"
+CLIDDSP="{FB4D048C-2FD2-11CF-B892-02608C411917}"
+

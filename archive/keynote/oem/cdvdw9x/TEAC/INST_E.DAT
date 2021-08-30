@@ -1,0 +1,155 @@
+1:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+ The setup program will install the software
+ under the following directory.             
+ The default drive and directory name       
+ can be changed as desired.                 
+                                            
+                                            
+                                            
+                [Press ESC key to Quit]     
+2:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+  Please select the drive configuration     
+  during Boot-up.If you want to select      
+  I/O address Tertiary or Quaternary,       
+  please select ' SELECT I/O PORT '         
+                                            
+      [ ]   AUTO SELECT                     
+      [ ]   SELECT I/O PORT                 
+                                            
+                        [ESC -> Backward]   
+3:46b-----------------------------------------
+ TEAC CD-ROM Software Installation            
+                                              
+ Please select one of the following addresses.
+                                              
+      [ ]   Primary   (1F0h)                  
+      [ ]   Secondary (170h)                  
+      [ ]   Tertiary  (1E8h)                  
+      [ ]   Quaternary(168h)                  
+                                              
+                          [ESC -> Backward]   
+4:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+  Select Master or Slave for CD-ROM drive.  
+                                            
+      [ ]   Master                          
+      [ ]   Slave                           
+      [ ]   Master & Slave                  
+                                            
+                        [ESC -> Backward]   
+5:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+     The specified path is not valid.       
+     Please specify again.                  
+                                            
+           [Press Return key to continue]   
+6:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+     Insufficient disk space.               
+     Please specify again.                  
+                                            
+           [Press Return key to continue]   
+7:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+           Transfering files...             
+                                            
+                                            
+                                            
+                                            
+                                            
+8:50b---------------------------------------------
+ TEAC CD-ROM Software Installation                
+  The setup program is now ready to add           
+  the following line in your              file.   
+                                                  
+                                                  
+                                                  
+                                                  
+                                                  
+            [ ]   Modify the file now             
+            [ ]   Do not modify                   
+                                                  
+9:44b---------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+ Are you sure you want to cancel the Setup ?
+                                            
+     [CANCEL]  ... Push RETURN key          
+     [RESUME]  ... Push ESC key             
+                                            
+10:50b--------------------------------------------
+ TEAC CD-ROM Software Installation                
+  The setup program is now ready to make          
+  the following changes to your              file.
+  (Current)                                       
+                                                  
+                                                  
+                                                  
+                                                  
+  (After)                                         
+                                                  
+                                                  
+                                                  
+                                                  
+            [ ]   Modify the file now             
+            [ ]   Do not modify                   
+                                                  
+11:44b--------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+  TEAC CD-ROM Setup program is completed    
+  successfully.                             
+  Please reboot the system.                 
+                                            
+             [Press RETURN key to Quit]     
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+13:44b--------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+     Could not find "MSCDEX.EXE" file       
+     in your system.                        
+     Setup failed.                          
+                                            
+             [Press RETURN key to Quit]     
+14:44b--------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+               file was created in root     
+  directory of drive C.                     
+                                            
+             [Press RETURN key to continue] 
+15:44b--------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+    Enter the drive and directory name      
+    whare "MSCDEX.EXE" file is installed.   
+                                            
+                                            
+                                            
+                                            
+                [Press ESC key to Quit]     
+16:44b--------------------------------------
+ TEAC CD-ROM Software Installation          
+                                            
+     Could not find "MSCDEX.EXE" file       
+     in the specified directory.            
+     Please specify again.                  
+                                            
+                                            
+             [Press RETURN key to continue] 
+end:
+

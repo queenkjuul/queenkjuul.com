@@ -1,0 +1,1493 @@
+;$Revision:   1.297  $
+Chips and Technologies, Inc.
+DR655xx Display Driver Package
+Release Notes for Windows 95
+
+
+                             DR655xx
+                     Display Driver Package
+
+Revision:   Preliminary Production Version 3.0.7
+Release Date:  April 10, 1998
+=================================================
+1. Adjusted playback display skew for KAPOK custom TV out modes.
+
+2. Fixed VPE PAL sized video playback problem. The problem was
+   vertical jitter in the bottom 1/4 of the screen.
+
+3. Added Write Combine support.
+
+4. Fixed problem with landscape cursor showing on portrait mode.
+
+  
+Revision:   Preliminary Production Version 3.0.6
+Release Date:  April 8, 1998
+=================================================
+1. Added 69000 section in CHIPSMM.DAT.
+
+2. Added 69000 vertical interpolation to Chipsvpm.dll.
+   CHIPSVPM.DLL is now version 1.01.00.0123.
+
+3. Fixed Chipsvpm.dll playback noise problem for 65550 and 65554 when
+   the acquisition window is the same size as the capture buffer.
+
+4. Removed VPE Y top cropping adjustment factor. Only VPE client
+   can adjust cropping values depending on source.
+
+
+Revision:   Preliminary Production Version 3.0.5
+Release Date:  March 26, 1998
+=================================================
+1. Fixed overlay alignment problem when panel vertical or
+   horizontal centering is turned off.
+
+2. Fixed problem with booting as a s/w instead of h/w cursor if VGA BIOS
+   does not have CRT panning support.
+
+3. Fixed 6555X , DirectDraw, video port extension, BOB video jitter problem. 
+
+4. Added DirectDraw, video port extension , BOB support for the 69000.
+
+5. Fixed field capture problem when vertical scaling is not enabled.
+
+6. Fixed jumping video when capture is being performed with double buffers
+   and image is panned off screen.
+
+7. Fixed problem with garbage trail of s/w cursor when Active Desktop "View as 
+   Web Page" enabled and dragging an icon in 8 bpp.
+
+Revision:   Preliminary Production Version 3.0.4
+Release Date:  March 10, 1998
+=================================================
+1. Fixed 69000 slow write problem that occurs in the CRT mode when hardware
+   overlay is first used after power up.
+
+2. Added 1600x1200 values to CHIPSMM.DAT.  This allows overlay to be played
+   in that mode.
+
+3. This is a custom release.
+
+
+Revision:   Preliminary Production Version 3.0.3
+Release Date:  March 2, 1998
+=================================================
+1. Made CHIPSVPM.DLL version strings compatible with Microsoft's
+   version strings.
+
+2. Fixed ActiveMovie 69000 playback problem when reduction is enabled.
+   The playback window was clipped too much.
+
+3. Enabled vertical interpolation for the 68554 in CHIPSVPM.DLL.
+   CHIPSVPM.DLL is now version 1.01.00.0122.
+
+4. Added values for CRT 1280x1024 75Hz to CHIPSMM.DAT.  This allows overlay
+   to be played in the mode with that refresh.
+
+5. Fixed palette xlat problem with Active Desktop background and icon
+   movement.  (Issue #656).
+
+6. Fixed garbage in both playback when two ActiveMovie 2.0 playing, one
+   is overlay and YUV flipping is selected.  (Issue #701).
+
+7. Fixed TV mode DOS box to DOS FS transition on newer BIOSes; the problem
+   occured if after opening o DOS box a TV switch is performed, then DOS FS. 
+
+Revision:   Preliminary Production Version 3.0.2
+Release Date:  February 24, 1998
+=================================================
+1. Updated some PlaybackMaxWidth in CHIPSMM.DAT to limit some widths
+   in 1280x1024 modes.
+
+2. Fixed hang problem with portrait mode if change color depth but not
+   restart resulting in no change.  Then change the orientation it hangs.
+
+3. Now install CHPSTART.EXE to run at boot time.  It is needed for 69000 TV
+   out vertical reduction initialization.
+
+
+Revision:   Preliminary Production Version 4.0.1
+Release Date:  February 19, 1998
+=================================================
+1. Fixed CRT detection for OnNow miniVDD functions in Win 98.
+
+2. Fixed a WHQL Overfly displaying garbage problem when the butterfly is near
+   the top of the screen and the display is panned down.
+
+3. Fixed a WHQL Overfly displaying garbage problem in TV Out when the height
+   of the butterfly is 1.
+
+4. This is a Win 98 release.
+
+
+Revision:   Preliminary Production Version 3.0.0
+Release Date:  February 17, 1998
+=================================================
+1. Added performance enhancement for 65555 on a 2MB system.
+
+2. No font caching for 24 bpp.
+
+3. Added vertical reduction no vertical pan support for TV out
+   NTSC 640x480, PAL 800x600 and 1024x600 on 69000.
+
+4. DX5 compatible drivers from now on.
+
+
+Revision:   Preliminary Production Version 2.5.4
+Release Date:  February 3, 1998
+=================================================
+1. Added 69000 NTSC/PAL bandwidth support to CHIPSVPM.DLL.
+   CHIPSVPM.DLL is now version 1.1.0.121.
+
+2. Added 69000 overlay PAL reduction support.
+
+3. Adjusted 69000 Overlay Playback Maximum width.
+
+4. Added 69000 NTSC and PAL overlay display skew adjustments.
+
+
+Revision:   Preliminary Production Version 2.5.3
+Release Date:  January 28, 1998
+=================================================
+1. Added 69000 overlay NTSC reduction support.
+
+2. Fixed CHIPSVPM MARGI CaptureToGo 640x480 capture problem.
+   CHIPSVPM.DLL is now version 1.1.0.120.
+
+3. Enable enhancement for 69000.
+
+4. Fixed Display Advanced Properties to display 69000 string correctly.
+
+5. For Win 98 internal use only.
+
+
+Revision:   Preliminary Production Version 2.5.2
+Release Date:  January 21, 1998
+=================================================
+1. Fixed additional potential hang problem while booting Win 95 on 65555 due
+   to VMM reading a write only area of hardware.
+
+2. Fixed WinBench98 BGW10 hang problem.
+
+
+Revision:   Preliminary Production Version 2.5.1
+Release Date:  January 16, 1998
+=================================================
+1. Fixed problem with getting GPF when opening Media player 63 times
+   in 800x600x8 mode. (Issue #680).
+
+2. Fixed problem with Merry-Go-Round AVI IN640S9.AVI of Winbench 98 showing
+   split picture with garbage in the middle when using 800x600x16 on 800x600
+   DSTN panel in simultaneous on 65550.
+
+3. Fixed JP excel97 RoundRectangle bug and cubic rotation too slow
+   problem.
+
+4. Fixed MYTH game, The Fallen Lords, video and mouse alignment problems.
+   (Issue #681).
+
+
+Revision:   Preliminary Production Version 2.5.0
+Release Date:  December 31, 1997
+=================================================
+1. Fixed current hang problem while booting Win 95 on 65555 due to VMM reading
+   a write only area of hardware.
+
+
+Revision:   Preliminary Production Version 2.4.9
+Release Date:  December 19, 1997
+=================================================
+1. Fixed trap problem with 1024x768x16 starting MS Works, creating a letter,
+   scrolling letter to botton, closing MS Works then dynamically changing
+   resolutions.
+
+
+Revision:   Preliminary Production Version 2.4.8
+Release Date:  December 18, 1997
+=================================================
+1. This is a preliminary Win98 release.
+
+
+Revision:   Preliminary Production Version 2.4.7
+Release Date:  December 10, 1997
+=================================================
+1. MMIO disabled for internal testing in this release only.
+
+
+Revision:   Preliminary Production Version 2.4.6
+Release Date:  December 9, 1997
+=================================================
+1. Added INFO key to Display registry.  There will be Chip type, DAC type,
+   and Memory fields in the Display Properties Settings in Advanced
+   Properties of Win 95 OSR2 and later.
+
+2. Fixed NTSC DOS box/FS panning problems introduced in driver version
+   2.3.9.
+
+3. Fixed Win95 Japanese - set mode F in FlatPanel or Simultaneous mode
+   in DOS sessions would hang.  (Issue #674).
+
+4. CHIPSVPM is now version 1.1.0.119.
+
+
+Revision:   Preliminary Production Version 2.4.5
+Release Date:  November 25, 1997
+=================================================
+1. Fixed 1280x1024 interlaced overlay alignment problem.
+
+2. Fixed Winbench 98 bitmap corruption problem.
+
+
+Revision:   Preliminary Production Version 2.4.4
+Release Date:  November 21, 1997
+=================================================
+1. Fixed hang problem when start in portrait 24 bpp mode then switch to 
+   landscape mode and set to 8 bpp mode.
+
+2. Fixed overlay alignment problem caused by invalid PanelStretchFlags. 
+
+3. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.4.3
+Release Date:  November 13, 1997
+=================================================
+1. Changed Portrait CHIPS95.INF to remove the loading of CHPSPTRT.EXE
+   by the run= line in WIN.INI if it exists.  This was causing two
+   CHPSPTRT.EXE on the taskbar.
+
+2. Fix for DOS FS on FlatPanel and Simultaneous Modes. 
+
+3. Fixed problem when stretching is enabled and mouse is sometimes off center
+   in 2D Flip Cube. (Issue #659).
+
+4. Fixed problem with WORDPAD scrolling text hang in portrait mode.
+
+5. Fixed mode 3 stretching problem in Korean DOS FS. (Issue #663).
+
+
+Revision:   Preliminary Production Version 2.4.2
+Release Date:  November 7, 1997
+=================================================
+1. Changed Portrait CHIPS95.INF to add to registry the automatic loading
+   of CHPSPTRT.EXE.
+
+2. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.4.1
+Release Date:  November 5, 1997
+=================================================
+
+
+Revision:   Preliminary Production Version 2.4.0
+Release Date:  November 4, 1997
+=================================================
+1. Fixed problem with US OSR2 changing the refresh using Chipsdsp and
+   the graphic performance slider without rebooting the cursor disappears
+   or appears in a black box at the top left corner of the screen.
+   (Issue #653).
+
+2. Fixed problem when gamma correction is enabled going to full screen DOS
+   and exiting the screen is blank.
+
+3. Fixed problems with JP OSR2 portrait mode character scroll get
+   corrupt and Lotus 1-2-3 line corrupt.
+
+4. Fixed VPM MARGI and C-Cube no video due to incorrect colorkey.
+   CHIPSVPM is now version 1.1.0.118.
+
+5. This release is for internal testing only.
+
+   
+Revision:   Preliminary Production Version 2.3.9
+Release Date:  October 28, 1997
+=================================================
+1. Fixed Monster Truck NTSC vertical panning problem which occurs when
+   game is first loaded.
+
+2. Fixed 65554 VPM noise on left side problem when ZV MPEG1 card is used.
+   CHIPSVPM is now version 1.1.0.117.
+
+3. Added granularity fix for 65555 ES 2.0 to have virtual mode 12 on
+   1024x600x24 on a 2MB system.  Enabled in this driver only for evaluation.
+
+
+Revision:   Preliminary Production Version 2.3.8
+Release Date:  October 24, 1997
+=================================================
+1. Fixed problem with running FN_ESSE.EXE then going to full screen DOS
+   causes a trap.
+
+
+Revision:   Preliminary Production Version 2.3.7
+Release Date:  October 20, 1997
+=================================================
+1. Fixed problem on 6554x when using a software cursor the system was
+   hanging when opening menus from the Start.
+
+2. Removed some enhancement for 2MB systems for further testing.
+
+3. Changed section name for language to [sLanguage] from [sCountry,sLanguage]
+   in CHIPSDSP.DAT.
+
+
+Revision:   Preliminary Production Version 2.3.6
+Release Date:  October 17, 1997
+=================================================
+1. Fixed problem on Japanese Win 95 in Excel 97 where some characters were
+   mistakenly clipped on the right after dragging the window off the screen
+   and back.  (Issue #613).
+
+2. Fixed overlay playback alignment problems with 1024x768 panels when
+   virtual desktop is enabled.
+
+3. Fixed problem with checking for panel stretching on older 6554x products
+   which do not have the feature.
+
+4. Fixed more problems with DOS sessions and NTSC output.
+
+5. Added support for Gamma Correction utility.
+
+6. Fixed VDD initialization on VLbus systems.
+
+7. Fixed DOS problems on VLbus on Win95 Japanese.
+
+8. Fixed problem on very old BIOS that may cause Dy switch. (Issue #649).
+
+9. Fixed mode 320x200x16bpp on Simultaneous/FlatPanel. 
+
+10. Fixed VPM right side screen corruption problem when capture size is
+    240x180 or 80x60. CHIPSVPM is now version 1.1.0.116.
+
+
+Revision:   Preliminary Production Version 2.3.5
+Release Date:  October 8, 1997
+=================================================
+1. Fixed movie playback hang problem when hotkey graphic stretching
+   was enabled. (Issue #642).
+
+
+Revision:   Preliminary Production Version 2.3.4
+Release Date:  October 6, 1997
+=================================================
+1. Fixed ICON corrupt problem when running WinTach on 24BPP mode. (Issue #638).
+
+2. Fixed additional button line above buttons on Ystation.  (Issue #637).
+
+3. Fixed problem with popup relocation and virtual desktops.
+
+4. Check for proper modes on 64310 before allowing them.
+
+5. Fixed problem on 64300/64310/65545/65548 where we allowed DirectDraw
+   to do 24 bpp blt colorfill when it is not supported on those chips.
+
+6. Added 1600x1200x8 and 1600x1200x16 to DirectDraw.
+
+
+Revision:   Preliminary Production Version 2.3.3
+Release Date:  October 1, 1997
+=================================================
+1. Fixed problem on a 1MB system where 800x600x8 had corruption on the
+   screen.  Memory on the screen was mistakenly given to the offscreen
+   memory manager.
+
+2. Fixed problem in VxD where the driver does not load if we are
+   not an MMIO system like VL.
+
+3. CHIPSVPM.DLL is version 1.1.0.115.
+
+
+Revision:   Preliminary Production Version 2.3.2
+Release Date:  September 29, 1997
+=================================================
+1. ExtEscape for EDID read.
+
+2. Fixed color key problem when using VPM 1.05 interface.  (Issue #578).
+
+3. CHIPSVPM.DLL should be version 1.1.0.115 but number is still 1.1.0.114.
+
+
+Revision:   Preliminary Production Version 2.3.1
+Release Date:  September 26, 1997
+=================================================
+1. Fix for cursor smoothness (in particular for 24bpp modes).
+
+2. Fix for Japanese OSR2 and DOS FS.
+
+3. Fixed chipsmm.dat file location problem.
+   This causes various video capture and playback. (Issue #590).
+
+4. New CHIPSDSP.DAT to correct some Japanese characters.
+
+
+Revision:   Preliminary Production Version 2.3.0
+Release Date:  September 19, 1997
+=================================================
+1. CHIPSDSP read CHIPSDSP.ICO and display on the tab. OEM can
+   copy their ICON file to this file to show up on the tab.
+
+2. Fixed problem with type casting which may cause incorrect zoom
+   factors when playing overlay and doing Alt-Enter to make a windowed
+   DOS box.
+
+3. Fixed problem with Big Char not drawn on 24BPP modes.
+
+
+Revision:   Preliminary Production Version 2.2.9
+Release Date:  September 17, 1997
+=================================================
+1. Fixed ActiveMoive overlay alignment problem when using CRT,
+   1024x600 mode, and 60 Hz refresh.   
+
+2. Fixed NTSC DOS box font corruption problem.
+
+3. Fixed problem with garbage from the overlay when no colorkey in TV-OUT
+   PAL when hidden because it is panned off the top of the screen.
+
+4. Corrected some overlay problems due to incorrect type casting.
+
+
+Revision:   Preliminary Production Version 2.2.8
+Release Date:  September 15, 1997
+=================================================
+1. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.2.7
+Release Date:  September 15, 1997
+=================================================
+1. Fixed 97 Lotus 123 and screen saver low power standby hang problem.
+   The error message displayed:Smartctr caused a GPF. (Issue #595).
+
+
+Revision:   Preliminary Production Version 2.2.6
+Release Date:  September 12, 1997
+=================================================
+1. Fixed offscreen bitmap cache overallocation problem.  (Issue #579).
+
+2. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.2.5
+Release Date:  September 11, 1997
+=================================================
+1. Fixed problem with the panned position getting reset in TVOUT and
+   CRT panning after going to full screen DOS.
+
+2. CHIPSDSP Fixed WHQL Change Frequency crash problem.
+
+3. CHIPSDSP Hide TV Attribute button at HideTVMode=1
+
+4. Fixed Adapter Default setting in OSR2 refresh rate (completed Issue #527).
+
+5. Added read EDID monitor in OSR2 refresh rate Advanced Properties.
+
+
+Revision:   Preliminary Production Version 2.2.4
+Release Date:  September 5, 1997
+=================================================
+1. Fixed PowerPoint wrong color (16BPP mode) problem on 65555. (Issue #575).
+
+2. Fixed junk on the screen after returning from OSR2 3DMAZE screen saver.
+   (Issue #555).
+
+
+Revision:   Preliminary Production Version 2.2.3
+Release Date:  August 28, 1997
+=================================================
+1. Added 1024x600x24 mode to CHIPS95.INF.
+
+2. Fixed VPM/DDraw overlay use conflict.  VPM would use the overlay 
+   even if it was already being used.
+
+3. Fixed double white lines on the DSTN panels (Issue #551). 
+
+4. Enabled generic mode support.
+
+
+Revision:   Preliminary Production Version 2.2.2
+Release Date:  August 27, 1997
+=================================================
+1. Fixed problem with playing ActiveMovie full screen, going to low power
+   standby, resuming, then the screen is in four sections. (Issue #493).
+
+2. Fixed problem with Monster Truck Madness in NTSC leaving a black box
+   when playing then hit Esc to exit.
+
+3. Fixed movie player overlay alignment problem with 1024x768 panel and mode
+   1024x600, simultaneous or LCD only. (Issue #547).
+
+4. Fixed popup relocation problem.
+
+5. Fixed problem with getting a trap error when going to low power standby
+   while in the OASYS editor. (Issue #556).
+
+6. Performance enhancement for some modes on 2 MB systems.
+
+
+Revision:   Preliminary Production Version 2.2.1
+Release Date:  August 20, 1997
+=================================================
+1. Fixed Japanese WIN 95 popup corruption problem.
+
+
+Revision:   Preliminary Production Version 2.2.0
+Release Date:  August 19, 1997
+=================================================
+1. Fixed problem with system hanging after going to full screen DOS,
+   starting CCDVP97 application, exiting and clicking the START button.
+   Related to problem when offscreen free memory becomes zero. (Issue #534).
+
+2. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.1.9
+Release Date:  August 15, 1997
+=================================================
+1. VPM: Added VPM dynamic mode change support.
+	Added support for no color key overlays.
+        Changed capture support: Interlaced sources are always
+        field captured now.  CHIPSVPM.DLL is version 1.1.0.114.
+
+2. Fixed NTSC panning problem when desktop size > screen size.
+
+3. Fixed OSR2 refresh rate (Optimal/Adapter Default setting).
+
+4. Fixed intermitent screen blanking when switching US to JP DOS
+   in Japanese Win95.
+
+Revision:   Preliminary Production Version 2.1.8
+Release Date:  August 12, 1997
+=================================================
+1. Fixed problem with palette not set when force from 16BPP to 8BPP.
+   (Issue #537).
+
+2. Fixed a problem when free memory size on heap becomes zero. (Issue #533).
+
+3. CHIPSDSP - Fixed Japanese language system bug where the TV Icon
+   incorrectly showed a help message when it should not have. (Issue #535).
+
+4. CHIPSDSP - Fixed problem where the Alt HotKeys for the Orientation
+   features operated improperly when there was no Portrait Driver
+   installed. (Issue #535).
+
+5. CHIPSDSP - For Portrait driver users only. 
+   Added flags in the CHIPSDSP.DAT file (\Windows\System directory)
+   under a new section called [User] that allows the user to specifically
+   enable/disable certain features under the Chips Control Panel.
+
+   The flags in the [User] section of the CHIPSDSP.DAT file are defined as:
+   CRTDetect = 0 means DLL will not specifically determine if a CRT is
+ 	       connected. (0 is default).
+   CRTDetect = 1 means that the DLL will specifically look for a connected
+	       CRT, and if not found will then disable (gray out) the CRT 
+	       checkbox preventing any further usage of the checkbox.
+
+   Portrait0 = 1/0 will enable/disable the 0 degree orientation button/hot key
+               1 is the default setting and should ALMOST NEVER be changed.
+   Portrait90 = 1/0 will enable/disable the 90 degree orientation
+                button/hot key. 1 is the default setting.
+   Portrait180 = 1/0 will enable/disable the 180 degree orientation
+                 button/hot key. 1 is the default setting.
+   Portrait270 = 1/0 will enable/disable the 270 degree orientation
+                 button/hot key. 1 is the default setting.
+
+
+Revision:   Preliminary Production Version 2.1.7
+Release Date:  August 11, 1997
+=================================================
+1. Fixed a hang problem with 1 MB of video memory in
+   800x600x16 CRT mode on a DSTN panel. (Issue #537).
+
+2. Fixed problem with garbage at the top of the screen when playing
+   ActiveMovie nonoverlay, going to full screen DOS, making it windowed
+   then changing between US and JP. (Issue #489).
+
+3. Fixed NTSC/PAL overlay alignment problems. (Issue #517).
+
+
+Revision:   Preliminary Production Version 2.1.6
+Release Date:  August 05, 1997
+=================================================
+1. Fixed Panel Status detection problem.
+
+
+Revision:   Preliminary Production Version 2.1.5
+Release Date:  July 29, 1997
+=================================================
+1. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.1.4
+Release Date:  July 29, 1997
+=================================================
+1. Fixed dynamic display change during ActiveMovie
+   is switched back to previous display when ActiveMovie
+   terminates. (Issue #443).
+
+2. Fixed panel status detection problem when NTSC/PAL.
+
+
+Revision:   Preliminary Production Version 2.1.3
+Release Date:  July 25, 1997
+=================================================
+1. CHIPSDSP, We changed CHIPSDSP.INI to CHIPSDSP.DAT and
+   put this file into the system directory
+
+2. Added TV Attributes button on CHIPSDSP property page
+   The button only enabled when display in TV mode
+
+3. TV attributes Dialog, can switch from pannig to non-
+   panning, Filtering on and off, interlaced and non-
+   interlaced.  Also, CHIPS button fix in Japanese Win 95.
+
+4. Fixed POPUP corruption problem. Added POPUP
+   memory adjustment. (Issue #494).
+
+5. Fixed MS Access garbage problem when scroll records (90 degree).
+
+6. Fixed Panel Status detection problem.
+
+7. Fixed problem when go from full screen DOS to windowed DOS on CRT,
+   switching to NTSC, then switching to full screen DOS the screen is
+   corrupted.  Fixed problem when go from full screen DOS on NTSC,
+   switching to CRT, then switching to full screen DOS the screen is
+   corrupted.
+
+8. Disabled generic mode support.
+
+
+Revision:   Preliminary Production Version 2.1.2
+Release Date:  July 22, 1997
+=================================================
+1. Changed CHIPSMM.INI to CHIPSMM.DAT and CHIPSDSP.INI to CHIPSDSP.DAT.
+   The files will now be in the \WINDOWS\SYSTEM directory.
+
+
+Revision:   Preliminary Production Version 2.1.1
+Release Date:  July 18, 1997
+=================================================
+1. Fixed overlay panning problem. (Issue #486).
+
+2. Fixed virtual desktop overlay vertical alignment problem. (Issue #485).
+
+
+Revision:   Preliminary Production Version 2.1.0
+Release Date:  July 17, 1997
+=================================================
+1. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.0.9
+Release Date:  July 17, 1997
+=================================================
+1. Fixed a screen corruption problem with Japanese Win 95 when playing
+   overlay then go to full screen DOS and making it a windowed DOS.
+
+2. Added generic mode support.
+
+3. Fixed stretched text problem in Korean Win 95 full screen DOS.
+   (Issue #492).
+
+4. Fixed virtual desktop overlay alignment problem. (Issue #485).
+
+5. Fixed overlay panning problems. (Issue #486).
+
+6. CHIPSVPM.DLL is version 1.1.0.113.
+
+
+Revision:   Preliminary Production Version 2.0.8
+Release Date:  June 27, 1997
+=================================================
+1. Fixed problem with allowing stretching instantaneously. (Issue #460).
+
+2. Fixed 65555 NTSC TV out alignment problem. (Issue #364).
+
+3. Use VGA BIOS low resolution modes if available.
+
+4. In CHIPSDSP.DLL allow refresh changing for Win 95 OSR2.
+
+
+Revision:   Preliminary Production Version 2.0.7
+Release Date:  June 23, 1997
+=================================================
+1. Fixed screen corruption after starting Monster Truck Madness in
+   1280x1024x8 then exiting.
+
+2. Fixed butterfly overlay wrong key color problem.
+
+3. Allow maximum width in CHIPSVPM to be 1024.
+
+4. Fixed noise problem with ChipsTV.  CHIPSVPM.DLL is version 1.1.0.112.
+
+5. Updated CHIPSMM.INI for TFT 800x600 panel 50MHz dot clock on a 65554
+   with 40MHz memory clock.
+
+
+Revision:   Preliminary Production Version 2.0.6
+Release Date:  June 19, 1997
+=================================================
+1. Added 16 bit and 24 bit support for custom driver.
+
+2. Solved problem with performance in 65555 because the software cursor
+   was accidentally enabled all the time. (Issue #465).
+
+3. Fixed problem where the color key was not enabled for overlay.
+
+4. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.0.5
+Release Date:  June 16, 1997
+=================================================
+1. Fixed WinBench 95 GWM9 hang problem.
+
+2. Fixed MPEG wrap problem when source pitch is greater than 352.
+   (Issue #403).
+
+
+Revision:   Preliminary Production Version 2.0.4
+Release Date:  June 10, 1997
+=================================================
+1. Added VPM display switch stretched graphic mode support.
+
+2. Fixed custom driver problem with moving windows around
+   and display corruption on background and in window. (Issue #428).
+
+3. Fixed custom driver problem with mouse corrupt when vertical
+   line replication is enabled. (Issue #429).
+
+4. Fixed custom driver problem with cursor position showing garbage
+   in MS Paint. (Issue #435).
+
+5. Fixed problem with losing overlay after going to full screen DOS
+   and exiting.
+
+6. Fixed problem with random hanging when exiting full screen DOS on
+   Japanese Win 95. (Issue #445).
+
+7. CHIPSVPM.DLL is version 1.1.0.111.
+
+8. This is a custom release.
+
+
+Revision:   Preliminary Production Version 2.0.3
+Release Date:  June 3, 1997
+=================================================
+1. Fixed booting problem with 4 bpp modes.
+
+2. Fixed general protection fault with TranXit in Japanese Win 95.
+   (Issue #439).
+
+
+Revision:   Preliminary Production Version 2.0.2
+Release Date:  May 29, 1997
+=================================================
+1. Fixed MS word string broken problem.
+
+
+Revision:   Preliminary Production Version 2.0.1
+Release Date:  May 29, 1997
+=================================================
+1. Fixed Japanese Win95 font cache hang problem. (Issue #424).
+
+2. Fixed MPEG playback wrap problem when source pitch is greater
+   than 352. (Issue #403).
+
+3. This is a custom release.
+
+
+Revision:   Preliminary Production Version 1.5.9
+Release Date:  May 21, 1997
+=================================================
+1. Fixed MS Word text string corrupt problem. (Issue #360, #371, #416).
+
+2. CHIPSDSP added a stretch screen feature. The feature
+   is hidden by default.
+
+
+Revision:   Preliminary Production Version 1.5.8
+Release Date:  May 19, 1997
+=================================================
+1. Fixed font cache location problem.
+
+2. Fixed MS Outlook text string corrupt problem.
+
+3. Added VPM support for graphics stretch overlay. (Issue #387).
+
+4. Fixed interlaced odd line problem during video playback. (Issue #388).
+
+5. Removed 240 line limit in CHIPSVPM.DLL. (Issue #386, #404).
+
+6. CHIPSVPM.DLL is version 1.1.0.110.
+
+
+Revision:   Preliminary Production Version 1.5.7
+Release Date:  May 09, 1997
+=================================================
+1. Fixed problem in modes that do not have memory for virtual mode 12.
+   If play overlay and open a windowed DOS box the cursor may become
+   garbage.
+
+2. CHIPSVPM.DLL is version 1.1.0.108.
+
+
+Revision:   Preliminary Production Version 2.0.0
+Release Date:  May 09, 1997
+=================================================
+1. Fixed no overlay problem when have 1 MB video memory for 640x480
+   and 800x600 modes.
+
+2. CHIPSVPM.DLL is version 1.1.0.109.
+
+3. This is a custom release.
+
+
+Revision:   Preliminary Production Version 1.5.6
+Release Date:  April 30, 1997
+=================================================
+1. Fixed corruption with Flying Windows screen saver. (Issue #382).
+
+2. Fixed overlay problem in stretched mode. (Issue #387).
+
+
+Revision:   Preliminary Production Version 1.5.5
+Release Date:  April 29, 1997
+=================================================
+1. Fixed a problem with overlay playback when switch CR/SM/FP.
+
+2. Fixed a problem with CHIPSDSP.DLL displaying the wrong text
+   for custom mode 1024x600x8 and 1024x600x16.
+
+3. Fixed a problem with CHIPSDSP.DLL on Japanese Win 95.
+
+
+Revision:   Preliminary Production Version 1.5.4
+Release Date:  April 23, 1997
+=================================================
+1. Modified CRT modes 320x240, 400x300 and 512x384 to run at a lower
+   refresh rate.
+
+2. Fixed a problem with corrupt font after running VMTEST.
+
+3. Fixed a problem with flashing when switch from ActiveMovie
+   full screen to windowed.
+
+4. Eliminated a 24 bpp custom DirectDraw mode.
+
+
+Revision:   Preliminary Production Version 1.5.3
+Release Date:  April 17, 1997
+=================================================
+1. Fixed a problem with 4 bpp modes when we have virtual desktops.
+
+2. Fixed a boot problem with modes 1024x768x256 in a 1 MB system
+   and 1280x1024x24 in a 4 MB system.
+
+3. Fixed Japanese help (DBCS) in CHIPSDSP.DLL.
+
+4. Fixed a problem with CHIPSVPM.DLL with right side wrap and always
+   set to field mode capture.  This is version 1.1.0.108.
+
+
+Revision:   Preliminary Production Version 1.5.2
+Release Date:  April 14, 1997
+=================================================
+1. Enable 1024x600x8 and 1024x600x16.  Will be available if VGA BIOS
+   supports it.
+
+2. Uncommented United Kingdom in CHIPSDSP.INI.
+
+
+Revision:   Preliminary Production Version 1.5.1
+Release Date:  April 11, 1997
+=================================================
+1. Fixed a screen corruption problem with Media Player and Japanese
+   DOS window.
+
+2. Fixed a problem with changing resolutions.
+
+
+Revision:   Preliminary Production Version 1.5.0
+Release Date:  April 09, 1997
+=================================================
+1. Fixed a screen corruption problem with Media Player and DOS window.
+
+2. Fixed problem with a dead overlay on the screen when do a dynamic
+   mode change.
+
+3. Fixed problem with a dead overlay on the screen when the 3D Maze
+   screen saver comes up.
+
+4. Fixed problem with a dead overlay on the screen when go out to
+   full screen DOS and come back.
+
+
+Revision:   Preliminary Production Version 1.4.9
+Release Date:  April 04, 1997
+=================================================
+1. Fixed a boot problem with 1 MB of video memory in
+   800x600x16 CRT mode.
+
+2. Fixed a problem in CHIPSVPM.DLL so when we have playback
+   with a ZV port we can see more of the picture.
+   This is version 1.1.0.107.
+
+3. Fixed problem with doing a "dir b:" in a DOS box.
+
+4. Fixed a problem with corrupt icons after going to 3D Maze screen
+   saver then low-power standby.
+
+
+Revision:   Preliminary Production Version 1.4.8
+Release Date:  March 31, 1997
+=================================================
+1. Fixed the return value in DestroySurface that the driver did
+   not handle it so DirectDraw can handle freeing memory.
+
+
+Revision:   Preliminary Production Version 1.4.7
+Release Date:  March 31, 1997
+=================================================
+1. Fixed a panning problem with WHQL Overfly when the butterfly
+   is near the top of the screen.
+
+2. Fixed the return value in DestroySurface that the driver handled it.
+
+3. Enabled HW specific features for 65555/68554; it also
+   has HW panning enabled.  These will be enabled from now on.
+
+
+Revision:   Preliminary Production Version 1.4.6
+Release Date:  March 27, 1997
+=================================================
+1. Fixed problem where DirectDraw custom modes for 1024x600
+   were not enabled.
+
+2. This is a custom release for 1024x600 panel and modes.
+
+
+Revision:   Preliminary Production Version 1.4.5
+Release Date:  March 25, 1997
+=================================================
+1. Fixed the problem when using control panel to change display mode
+from BOTH to LCD.  The machine hanged and the screen became blank.
+
+
+Revision:   Preliminary Production Version 1.4.4
+Release Date:  March 21, 1997
+=================================================
+1. Fixed problem where vertical interpolation was not being enabled.
+
+
+Revision:   Preliminary Production Version 1.4.3
+Release Date:  March 19, 1997
+=================================================
+1. Enabled HW specific features for 65555/68554; it also has HW 
+   panning enabled.  These are for this release only.
+
+
+Revision:   Preliminary Production Version 1.4.2
+Release Date:  March 19, 1997
+=================================================
+1. During installation will also copy over CHIPSDSP.INI and
+   JAPANESE.HLP. In CHIPSDSP.INI we added language support.  We
+   can detect what language the system is using and bring up
+   the right text in the control panel property page. The language
+   caption is set in CHIPSDSP.INI file.
+
+2. This is a custom release for 1024x600 panel and modes.
+
+
+Revision:   Preliminary Production Version 1.4.1
+Release Date:  March 14, 1997
+=================================================
+1. Added custom mode resolutions 1024x600 to DirectDraw but
+   they are only enabled for custom driver.
+
+2. Modified the 320x200 resolutions to run at a lower refresh rate.
+
+
+Revision:   Preliminary Production Version 1.4.0
+Release Date:  March 10, 1997
+=================================================
+1. Enabled HW specific features for 65555.  This is for this release only.
+
+
+Revision:   Preliminary Production Version 1.3.9
+Release Date:  March 10, 1997
+=================================================
+1. Fixed video overlay alignment problem in all NTSC/PAL interlaced modes.
+
+2. Fixed video overlay alignment problem in custom mode 1024x600
+   for interlaced and 60 Hz refresh.
+
+3. Fixed Overfly having a green background when using YUY2.
+
+
+Revision:   Preliminary Production Version 1.3.8
+Release Date:  March 04, 1997
+=================================================
+1. Changed CHIPSVPM.DLL to fix some stray black lines on left
+   edge of capture window.  This is version 1.1.0.106.
+
+
+Revision:   Preliminary Production Version 1.3.7
+Release Date:  February 21, 1997
+=================================================
+1. Changed custom mode 1024x600x24 to require 2 MB instead of
+   3 MB of memory.
+2. This is a custom release for 1024x600 panel and modes.
+
+
+Revision:   Preliminary Production Version 1.3.6
+Release Date:  February 18, 1997
+=================================================
+1. Same release of Version 1.3.5 with custom features removed.
+
+
+Revision:   Preliminary Production Version 1.3.5
+Release Date:  February 18, 1997
+=================================================
+1. Added custom mode 1024x600x4.
+
+2. New CHIPSVPM.DLL.  This is version 1.1.0.105.
+
+3. New CHIPSDSP.DLL.
+
+4. Custom release for 1024x600 panel and modes.
+
+
+Revision:   Preliminary Production Version 1.3.4
+Release Date:  February 14, 1997
+=================================================
+1. Fixed mouse problems (area beneath it) in 16 color modes.
+
+
+Revision:   Preliminary Production Version 1.3.3
+Release Date:  February 10, 1997
+=================================================
+1. Eliminated CHTDD16.DLL.
+
+2. Added low resolution modes for DirectX games.
+
+
+Revision:   Preliminary Production Version 1.3.2
+Release Date:  February 04, 1997
+=================================================
+1. Fixed problem with allowing multiple overlay surfaces
+   in ActiveMovie when we can only allow one.
+
+
+Revision:   Preliminary Production Version 1.3.1
+Release Date:  January 28, 1997
+=================================================
+1. Fixed video overlay alignment problem in NTSC 640x480 and
+   PAL 800x600 interlaced modes.
+
+
+Revision:   Preliminary Production Version 1.3.0
+Release Date:  January 22, 1997
+=================================================
+1. Has offscreen bitmap support.
+
+
+Revision:   Preliminary Production Version 1.2.9
+Release Date:  January 20, 1997
+=================================================
+1. Fixed SetColorKey problem.
+
+2. Fixed problem if a requested resolution is not supported.
+
+3. Added support for external frame buffer in DSTN panel types.
+
+
+Revision:   Preliminary Production Version 1.2.8
+Release Date:  January 13, 1997
+=================================================
+1. Enable ellipse and polygon in driver.
+
+
+Revision:   Preliminary Production Version 1.2.7
+Release Date:  January 08, 1997
+=================================================
+1. Fixed Tddraw Test Case 35 when doing source transparent blts in
+   the right to left direction.
+
+2. Fixed problem with not waiting for vertical blank time to do a flip
+   in DirectDraw.
+
+3. Implemented DirectDraw SetColorKey.
+
+
+Revision:   Preliminary Production Version 1.2.6
+Release Date:  December 19, 1996
+=================================================
+1. Fixed Control panel CHIPSDSP <Up> and <Down> Key of
+   "Monitor Type" selection problem.
+
+2. Fixed a problem on VL bus machine that when open windowed DOS 
+   first time after restarted Windows, it takes several seconds.
+   This also fixed problems that some VGA modes didn't work in 
+   windowed DOS.
+
+
+Revision:   Preliminary Production Version 1.2.5
+Release Date:  December 4, 1996
+=================================================
+1. Fixed OSR2 ActiveMovie not using hardware overlay problem.
+
+
+Revision:   Preliminary Production Version 1.2.4
+Release Date:  November 8, 1996
+=================================================
+1. Same as version 1.2.3 but compiled with offscreen bitmap.
+
+
+Revision:   Preliminary Production Version 1.2.3
+Release Date:  November 8, 1996
+=================================================
+1. Performance fix for CorelDraw.
+
+2. Initialize overlay values for DirectDraw in capabilities
+   structure.
+
+3. Fixed problems with WHQL Overfly when overlay same as primary surface.
+
+
+Revision:   Preliminary Production Version 1.2.2
+Release Date:  November 5, 1996
+=================================================
+1. Fixed screen saver shut down power and offscreen bitmap get lost
+problem.
+
+2. Fixed WHQL Overfly panning problem.
+
+3. Removed fix for the problem of the screen flashing twice
+after resume because of an OSR2 problem.
+
+4. Fixed problem that 256 color mode cannot be set correctly in full
+screen DOS.
+
+5. Fixed problem that mode 12 cannot be set correctly in full screen DOS.
+
+
+Revision:   Preliminary Production Version 1.2.1
+Release Date:  October 29, 1996
+=================================================
+1. Same as version 1.2.0 but compiled for no offscreen bitmap.
+
+
+Revision:   Preliminary Production Version 1.2.0
+Release Date:  October 29, 1996
+=================================================
+
+1. Fixed a wrong color (color translation) problem on all 256 color
+   mode in LION KING application when CTRL_ESC is pressed on and then
+   restored to LION KING windows again.
+
+2. Updated CHIPSMM.INI in section Capture554x40 CRT_640x480x16x85
+   CaptureInterpolX.
+
+3. Fixed the problem of the screen flashing twice after resume.
+
+4. Fixed the problem of garbage in CRT mode after resume.
+
+5. Fixed problem with panning in NTSC when panning turned on mistakenly.
+
+6. Fixed a screen corruption problem caused by moving cursor while 
+   MYST is changing mode.
+
+7. Fixed DOOM2 flashing problem.
+
+8. Fixed MS Plus wallpaper problems.
+
+9. Fixed a corruption problem when returning to un-supported Windows
+mode on 65548.
+
+10. Fixed problem with text mode font stretched in full screen DOS.
+
+
+Revision:   Preliminary Production Version 1.1.8
+Release Date:  October 3, 1996
+=================================================
+
+1.  Fixed a problem in Korean Windows that text is stretched after
+    going to full screen DOS.
+
+2.  Fixed a panning problem in 1024x768 mode on a 1024x600 panel.
+
+3.  Fixed some typos in ModeInfo table.
+
+4.  Fixed corruption problem when in a CRT only mode, go out to
+    DOS box, change to simultaneous mode then exit.
+
+5.  Fixed windowed FoxBear white background boxes appearing when
+    Microsoft Office is opened.  This was for 65554.
+
+6.  Updated Chipsmm.ini for 65554 40 MHz mclock TFT 640x480 and
+    TFT 800x600 panel for all modes.  Updated also the maximum buffer
+    width for 65554 40 MHz mclock for all CRT capture modes and
+    refresh rates.
+
+7.  Enable ellipse in driver.
+
+
+Revision:   Preliminary Production Version 1.1.7
+Release Date:  September 20, 1996
+=================================================
+
+1.  Added functions to read mode info from ChipsMM.INI for
+    Multimedia support.
+
+2.  Fixed a GPF problem when changing color depth dynamically after 
+     windowed DOS prompt is created and exited.
+
+3.  Fixed a GPF found when cancelling OSR2 installation.
+
+4.  Fixed a string corruption problem when copy cells in Excel.
+
+5.  Fixed software cursor hang problem in WinBench96 (GWM5).
+
+6.  Fixed Immortal Klowns flashing problem in HiRes or HiColor modes.
+
+7.  Implemented OSR2 refresh rate support.
+
+8.  Fixed refresh rate problem in Mode 3+ when DOS Box --> CRT --> Full
+    screen DOS.
+
+9.  Fixed a icon corruption problem after returned from full screen DOS
+     prompt.
+
+10. Fixed GPF problems when existing Windows or doing dynamic resolution
+     or color depth switching.
+
+11. Fixed garbage during Immortal Klown on 550 STNDD panel machine when
+     booted in CRT mode and then do a HotKey switch to panel mode.
+
+Revision:   Preliminary Production Version 1.1.4
+Release Date:  August 19, 1996
+=================================================
+
+1.    Modified the memory calculations for 800x600 DSTN panels so
+      all appropriate modes are available for CRT, LCD, and
+      simultaneous display types.
+
+2.    Fixed a cursor corruption problem with the AVI test of
+      Windows 95 SCT test.
+
+3.    Fixed a display problem in mode 3+ where pressing <Ctrl-Alt-
+      Del> corrupted the display.
+
+4.    Fixed a problem where the Windows 95 logo appeared to flash
+      twice when starting up a 6554x machine.
+
+5.    Fixed a problem where the popup menu would corrupt the
+      screen on machines using DSTN panels.
+
+6.    Added support for the 5F22 BIOS function for the F65548
+      chipset.  The F65545 chipset does not support this function.
+
+7.    Fixed a problem with Direct draw games and Benchmarks having
+      low performance.
+
+
+Revision:   Version 1.1.0
+Release Date:  July 11, 1996
+============================
+
+1.    Fixed a problem which occurred when the DirectDraw  driver
+      was  running with the FoxBear game in the 800x600 and 1024x768
+      STNDD panels in simultaneous mode.
+
+2.    Fixed a problem when running the Borland Turbo Debugger.
+
+3.    Fixed a problem where the selected Display Type (LCD, CRT,
+      Both) in Full Screen DOS would change when exiting Full Screen
+      DOS and returning to the Windows desktop.
+
+4.    Modified the 16BPP modes from 5-5-5(32K color) to 5-6-5(64K
+      color).
+
+5.    Fixed a problem with restoring DOS VM in Japanese  Windows
+      after changing to the US environment by typing CHEV US command in
+      the DOS VM environment.
+
+6.    Fixed the problem with the flashing Windows 95 logo when booting
+      Windows 95.
+
+7.    Modified the driver to adjust the video window alignment for
+      the high bandwidth modes.
+
+8.    Fixed the problems in VxD.
+
+9.    Fixed the AVI corruption problem with overlay surfaces in
+      the 8bpp modes.
+
+10.   Added support for DirectDraw off-screen overlay surfaces for
+      software codecs (DVIDEO.DLL).
+
+11.   Adjusted the video display skew for the interlaced modes.
+
+12.   Fixed a problem where panning would not work properly while
+      playing an AVI file and switching the display to CRT.
+
+13.   Modified the driver to correct a problem with panning in
+      4bpp and 24bpp modes.
+
+14.   Fixed the problem where double screens would appear in the
+      4bpp drivers.
+
+15.   Fixed the problem with popup where the popup was
+      disappearing when Windows 95 was shutdown and restarted in DOS.
+
+16.   Fixed the problem where the gray text did not appear gray in
+      the disabled menu items.
+
+17.   Modified the driver to allow the software cursor to be
+      visible in a playback window.
+
+18.   Fixed the cursor problem when running the HCT AVI test.
+
+19.   Fixed a problem with Microsoft's "QuickRes" application.
+
+20.   Fixed the video corruption problem in Merry-Go-Round AVI
+      file from Winbench 96.
+
+21.   Fixed the problem in full screen DOS where setting mode 12h
+      from mode 3+ sometimes showed a blank screen.
+
+22.   Fixed the problems in the DirectDraw drivers.
+
+23.   Fixed the display corruption problem in mode 72h when
+      switching between full screen DOS and the DOS box in Japanese
+      Windows 95 by pressing Alt+Enter.
+
+Revision:   Version 1.0.6
+Release Date:  June 14, 1996
+============================
+
+1.    Fixed a double cursor problem.
+
+2.    Disabled video capture for all 800x600 and 1024x768 DSTN and
+      TFT panels in 16bpp modes.
+
+3.    Added CRTPanning=1 in the [Display] section of the SYSTEM.INI
+      file to force CRT/NTSC Panning without the BIOS function 5F50
+      DL[4] support.
+
+4.    Fixed a problem where the selected Display Type (LCD, CRT, Both)
+      in Full Screen DOS would change when exiting Full Screen DOS and
+      returning to the Windows desktop.
+
+
+Revision:   Version 1.0.4
+Release Date:  May 21, 1996
+============================
+
+1.    Modified the 16BPP modes from 5-5-5(32K color) to 5-6-5(64K
+      color).
+
+2.    Fixed the differences in alignment and palette to control
+      the noise problem in F65550 ES 1.5/1.6.
+
+3.    Fixed the problem with restoring DOS VM in Japanese Windows
+      after changing to the US environment by typing CHEV US command in
+      the DOS VM environment.
+
+4.    Fixed the problem with the flashing Windows 95 logo when
+      booting Windows 95.
+
+5.    Modified the driver to adjust the video window alignment for
+      the high bandwidth modes.
+
+6.    Fixed the problem with Video Capture/Playback and VxD.
+
+7.    Fixed the problems in VxD.
+
+8.    Fixed the AVI corruption problem with overlay surfaces in
+      the 8bpp modes.
+
+9.    Added support for DirectDraw off-screen overlay surfaces for
+      software codecs (DVIDEO.DLL).
+
+10.   Adjusted the video display skew for the interlaced modes.
+
+11.   Fixed the problem with panning when playing an AVI file &
+      switching the display to CRT.
+
+12.   Fixed the problem with the Hardware cursor and Popup while
+      loading Windows 95.
+
+13.   Modified the driver to correct a problem with panning in
+      4bpp and 24bpp modes.
+
+14.   Fixed the problem where double screens were showing up in
+      the 4bpp drivers.
+
+15.   Fixed the problem with Popup where Popup was disappearing
+      when Windows 95 was shutdown and restarted in DOS.
+
+16.   Fixed the problem where the gray text was not gray in the
+      disabled menu items.
+
+17.   Added panning capability for NTSC/PAL modes.
+
+18.   Disabled vertical interpolation if the MClock is less than
+      38MHz for TFT panels.
+
+19.   Disabled vertical interpolation for Flat Panel and
+      Simultaneous display modes for STNDD panels.
+
+20.   Enabled the software cursor so that it is now visible in a
+      playback window.
+
+21.   Fixed the cursor problem when running the HCT AVI test.
+
+22.   Added a flag to disable error checking when multiple
+      multimedia clients want to access the multimedia hardware at the
+      same time.
+
+22.   Fixed a problem with Microsoft's "QuickRes" application.
+
+23.   Fixed the video corruption problem in Merry-Go-Round AVI
+      file from Winbench 96.
+
+24.   Fixed the problem in full screen MSDOS where setting mode
+      12h from mode 3+ sometimes showed a blank screen.
+
+25.   Fixed the problems in the DirectDraw drivers.
+
+27.   Fixed the problem where the display showed garbage in Mode72
+      when switching  between the DOS FullScreen and DOS box in
+      Japanese Windows 95 by pressing Alt+Enter.
+
+
+Revision:      Version 1.0.0
+Release Date:       March 1, 1996
+
+1. Initial Release.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

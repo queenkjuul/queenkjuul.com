@@ -1,0 +1,119 @@
+*** Release Notes for HIT-IDE.SYS Ver.1.06d2 ***
+
+1. General
+
+   HIT-IDE.SYS is the device driver for DOS CD-ROM Extensions that supports 
+   ATAPI CD-ROM drives.
+
+2. Command line switches of 'HIT-IDE.SYS'
+
+   (1) SYNTAX
+   
+    DEVICE = [x:][\dir\]HIT-IDE.SYS /D:(device name) [/N:(number of drives)]
+             [/T:(drive type)] [/S:(base I/O address)] [/V]
+             
+   (2) Meaning of switches
+   
+       /D:(device name)		Specifies "Device Name".
+       
+       /N:(number of drives)	Specifies number of drives to be supported by
+       				this driver.  Value 1 to 8 are valid.
+       				If this switch is omitted, the driver will 
+       				search connected drives.
+       
+       /T:(drive type)		Specifies the first drive type to begin to 
+       				support.  
+       				Definition of drive types are as follows:
+       				
+       				/T:   base I/O address    master/slave
+       				---------------------------------------------
+       				0     1F0h(primary port)  master
+       				1     1F0h(primary port)  slave 
+       				2     170h(2nd port)      master
+       				3     170h(2nd port)      slave 
+       				4     1E8h(3rd port)      master
+       				5     1E8h(3rd port)      slave 
+       				6     168h(4th port)      master
+       				7     168h(4th port)      slave 
+				
+       				If this switch is omitted, it is the same as
+       				/T:0.
+       				
+       /S:(base I/O address)	Change IRQ number to the specified base I/O
+       				address.
+       				
+				base I/O           IRQ No.
+				 address    without /S:    with /S:  
+					     (default)	  (alternate)
+				----------------------------------------------
+				170h		15		10
+				1E8h		12		11
+				168h		10		9
+				(1F0h)		(14)		(14)
+	
+	/V			Display installation information.
+
+	/B			Use BIOS setting for data transfer. 
+	
+
+3. Examples of installation
+
+	<Case 1> -- Using /N: and /T: switches together.  This setting 
+		will reduce the loading time of the device driver.
+
+		DEVICE = HIT-IDE.SYS /D:MSCD001 /N:2 /T:2
+		
+		-- Search beginning at /T:2 installing maximum 2 drives.
+		
+	<Case 2> -- Default is automatic search for all drives connected.
+     
+		DEVICE = HIT-IDE.SYS /D:MSCD001
+		
+		-- Install all drives connected to primary, 2nd, 3rd & 4th.
+
+	<Case 3> -- Using /N: switch to limit the maximum number of drives.
+
+		DEVICE = HIT-IDE.SYS /D:MSCD001 /N:2
+		
+		-- Install maximum of 2 drives while auto searching.
+
+	<Case 4> -- Using /T: switch to change the start of automatic search.
+
+		DEVICE = HIT-IDE.SYS /D:MSCD001 /T:2
+		
+		-- Search beginning at /T:2 (2nd port and master).
+
+	<Case 5> -- Using /S: switch to use alternate IRQ numbers.
+	
+		DEVICE = HIT-IDE.SYS /D:MSCD001 /S:170,168
+		
+		-- Auto search all drives using alternate IRQ numbers
+		   for 170 (IRQ 10) and for 168 (IRQ 9).   Use default 
+		   IRQ numbers for others (1F0 IRQ 14; 1E8 IRQ 12).
+		
+	<Case 6> -- Using all switches together.
+	
+		DEVICE = HIT-IDE.SYS /D:MSCD001 /N:1 /T:2 /S:170
+		
+		-- Install only 1 drive starting search at 2nd port master.
+		   Use alternate IRQ of 10 for 170.
+		
+	
+
+4. History
+	Ver.1.06 --> 1.06a
+		- support multi-block read to improve CPU Utilization.
+
+	Ver.1.06a --> 1.06d
+		- improve auto-search sequence at booting.
+		- fixed bug of handling of some multi-session discs.
+
+	Ver.1.06d --> 1.06d2
+		- improve data transfer speed on Triton-2 PC.
+
+
+ The above specifications are subject to change.
+ 
+							May 24, 1996
+							Hitachi, Ltd. 
+

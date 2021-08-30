@@ -1,0 +1,106 @@
+
+                       Chips and Technologies, Inc.
+                         Display Driver Package
+                   Release Notes for Windows NT 4.00
+
+Revision:      1.0.8
+Release Date:       May 22, 1997
+================================
+The following problems have been fixed in the current release:
+ 1. Pre-install of driver does not work. Defaults to VGA.
+ 2. 65548 -- Cannot switch to Full Screen DOS session.
+ 3. 65548 -- When in Display Settings, selecting Test to test new display
+    setting causes system to hang.
+
+    Failures 2,3 are due to a problem with BIOS Set Refresh function,
+    which was introduced in later versions of 65548 Video BIOS. Fix has been
+    temporarily made in miniport driver until BIOS fix is available.
+
+ 4. 65545/548 VL/ISA -- The system will hang when doing a Restart after   
+    shutdown.
+
+ 5. When switching to NTSC video, two cursor images appear on screen.
+ 
+Revision:      1.0.7
+Release Date:       Apr 17, 1997
+================================
+The following problems have been fixed in the current release:
+ 1. Added support for Generic Modes 36,46,47,56,57. Custom panel information
+    is no longer hard coded in driver. Panel information is obtained with 
+    BIOS.
+ 2. Cursor movement and position is not correct when Graphics Mode stretching
+    is enabled. Switch to software cursor is now done to allow proper cursor
+    movement.
+ 3. Added ExtEscape functions to support Chips VPM. 
+ 
+
+Revision:      1.0.6
+Release Date:       Apr 02, 1997
+================================
+The following problems have been fixed in the current release:
+ 1. Added support for 1024x600 mode.
+
+
+Revision:      1.0.5
+Release Date:       Mar 31, 1997
+================================
+The following problems have been fixed in the current release:
+ 1. Added support for NTSC/PAL CRT Panning. 
+ 2. Added ExtEscape functions to support ChipsCPL.
+ 3. Fixed NT 4.0 J problem switching to DOS Fullscreen session.
+ 
+Revision:      1.0.4
+Release Date:       Mar 10, 1997
+================================
+
+ 1. Added support for 65555 and 68554 chips.
+   
+Revision:      1.0.3
+Release Date:       Mar 03, 1997
+================================
+The following problems have been fixed in the current release:
+
+ 1. Underline Text Cursor is missing after switching from Desktop to DOS Command
+    Prompt full screen session.   
+   
+ 2. Text Expansion gets reset during restore of DOS Command Prompt full screen
+    session. 
+
+ 3. Invalid refresh selection ( 0 Hz ) listed in Display Settings.
+
+Revision:      1.0.2
+Release Date:  Jan 20, 1997
+===========================
+
+1. Fixed problem with corruption in display window when using Media Player to 
+   play an MPEG (.MPG) file. 
+   
+2. Fixed problem with AVI window freezing when playing and an overlapping DOS
+   Command Prompt window was switched to full screen, then switched back to
+   a window, and then minimized to tak bar. Media Player control would indicate
+   that the video clip was playing, but nothing was being drawn in AVI window.
+   
+3. Fixed problem with 24bpp Transparent SRC/DST bitblt operations in Direct Draw.
+
+4. Modified code to correctly output large font (glyphs) that reside in "packed"
+   font files.
+
+Revision:      1.0.0
+Release Date:  Oct 4, 1996
+==========================
+
+1. Added Direct Draw bitblt support for 6555x, 6554x.
+
+2. Fixed the following problems:
+
+   a. Full screen graphic VDMs are stretched vertically and horizontally.
+
+   b. Mouse cursor disappears when you go to the right edge or bottom edge
+      in 800x600 or 1024x768 modes.
+
+   c. Start WinNT 4.0 with true color mode(mode 50 or 52). Select any
+      background pattern from the Display Properties Background sheet. Click OK.
+      You will see that the background palette is corrupt.
+
+   d. Memory size detection and mode missing problem on 65554.
+

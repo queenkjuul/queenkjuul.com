@@ -1,0 +1,1048 @@
+;For Naturalization (multiple language support) you have to perform
+;two sets of translations
+;   1. The section of strings for each language below (ChipsDSP.DAT)
+;   2. The Help File using WORD for Windows  and recompile it using the
+;      help compiler. (ChipsDSP.HLP). Since multiple help files exist,
+;      use different help file names for different languages.
+;and if there are any new languages or files,
+;   3. Modify the Chips95.INF file to install the additional files.
+;and test the translations by
+;   4. Changing the language in the Control Panel "Regional Settings"
+;      and restarting the Display Property Sheet. You don't have to
+;      restart Windows for the translations to take effect in the
+;      Chips TAB. Be sure to test the help too.
+;
+;
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Naturalization purpose.
+
+;Do not translate this section. It describes the current settings.
+
+[Current]
+Mode43=Mode43
+Mode34=75 HZ
+Mode45=60 HZ
+Mode32=85 HZ
+Mode24=75 HZ
+Mode30=85 HZ
+Mode38=75 HZ
+
+
+;****************************************************************************
+;UsingDefaultDltTemplate=1 means use the default template
+;UsingDefaultDltTemplate=0 means use the sections below
+;to display the control panel property sheet
+
+UsingDefaultDlgTemplate=0
+;Check button for Stretch screen is defaultly hide
+;HideStretchScreen=0
+;Disable the display device or not
+
+[TV]
+EnableFiltering=1
+HideTVMode=0
+
+[Device]
+Disable=0
+
+[Monitor]
+HideFreqency=0
+HideDefault=0
+
+[User]
+;User section
+;CRTDetect = 0 means DLL will not specifically determine if a CRT is
+;	       connected.
+;	     0 is the default setting
+;CRTDetect = 1 means that the DLL will specifically look for a connected
+;	       CRT, and if not found then will disable the CRT checkbox
+;	       preventing any further accidental usage of the checkbox.
+;Portrait0 = 1/0 will enable/disable the 0 degree Orientation feature,
+;            1 is the default setting and should almost never be changed to 0.
+;Portrait90 = 1/0 will enable/disable the 90 degree Orientation feature
+;            1 is the default setting
+;Portrait0 = 1/0 will enable/disable the 180 degree Orientation feature
+;            1 is the default setting
+;Portrait0 = 1/0 will enable/disable the 270 degree Orientation feature
+;            1 is the default setting
+;****************************************************************************
+CRTDetect=0
+Portrait0=1
+Portrait90=1
+Portrait180=1
+Portrait270=1
+
+
+;*******************************************************
+;The following sections are for the Naturalization (multiple
+;language) support.
+;*******************************************************
+
+;Each language has a section.
+;The section name is derived from the WIN.INI file
+;by reading the sCountry and sLanguage profile strings from
+;[INTL] section, and forming the name
+;[sCountry,sLanguage]
+;to uniquely identify a language.
+
+;These profiles are set by Windows when you change the "Regional Settings"
+;in the Control Panel.
+;For example, when we choose English(United States)
+;we get
+;sCountry=United States
+;sLanguage=enu
+;and the ChipsDSP reads the strings from the
+;[United States,enu]
+;section
+;
+;To add a new language, copy a language section
+;below and translate the righthand side. Be sure to
+;reference the correct *.HLP file and label each section
+;with the correct international tag/section name.
+;Remember to modify the Chips95.INF to install the new help too.
+;*******************************************************
+
+;*******************************************************
+; English, United States
+;*******************************************************
+
+;[United States,enu]
+[enu]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSDSP.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Refresh Rate:
+Windows_Default=&Windows Default
+Information=Information
+Display_Device=Display Device
+CRT=&CRT
+LCD=&LCD
+BOTH=&Both
+TV=&TV
+Chips_TV_Control=TV Control
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Current Mode
+Monitor_Type=Monitor Type:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Colors
+
+;For the file version DialogBox
+DlgTitle=Information
+File_Name=File Name
+File_Version=File Version
+Date=Date
+Time=Time
+Size_Bytes=Size(Bytes)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV_Attributes
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;AttribDlg=TV Attributes
+
+;*******************************************************
+; French Section
+;*******************************************************
+
+;[France,fra]
+[fra]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSFRA.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=FrÈquence de rafraÓchissement:
+Windows_Default=Valeur par dÈfaut &Windows
+Information=Informations
+Display_Device=UnitÈ d'affichage
+CRT=&CRT
+LCD=&LCD
+BOTH=LCD+CRT
+TV=&TV
+Chips_TV_Control=ContrÙle TV
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Mode actif
+Monitor_Type=Type d'Ècran :
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Couleurs
+
+;For the file version DialogBox
+DlgTitle=Informations
+File_Name=Nom du fichier
+File_Version=Version du fichier
+Date=Date
+Time=Heure
+Size_Bytes=Taille (octets)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=La configuration de l'affichage va Ítre modifiÈe. Si le rÈsultat obtenu n'est pas correct, appuyez sur Echap pour revenir ‡ la configuration initiale.
+AfterChangeMsg=La configuration de l'affichage a ÈtÈ modifiÈe.
+
+TV_Attributes=TV France
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; German Section
+;*******************************************************
+
+;[Germany,deu]
+[deu]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSDEU.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Bildwiederholfrequenz:
+Windows_Default=&Windows-Standard
+Information=Information
+Display_Device=Anzeigeeinheit
+CRT=&CRT
+LCD=&LCD
+BOTH=&Beide
+TV=&TV
+Chips_TV_Control=TV-Steuerung
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Aktueller Modus
+Monitor_Type=Bildschirmtyp:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Farben
+
+;For the file version DialogBox
+DlgTitle=Information
+File_Name=Dateiname
+File_Version=Dateiversion
+Date=Datum
+Time=Uhrzeit
+Size_Bytes=Bytes
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=Bildschirmeinst. d. Computers wird ge‰ndert. Falls mit neuer Einst. keine fehlerfreie Anzeige mˆgl. ist, ESC dr¸cken, um urspr¸ngl. Einst. wiederherzust.
+AfterChangeMsg=Bildschirmeinstellung des Computers wurde ge‰ndert.
+
+TV_Attributes=TV German
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; Italian Section
+;*******************************************************
+
+;[Italy,ita]
+[ita]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSITA.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Velocit‡ di scansione:
+Windows_Default=&Valori predefiniti del Windows
+Information=Informazioni
+Display_Device=Unit‡ video
+CRT=&CRT
+LCD=&LCD
+BOTH=&ENTRAMBI
+TV=&TV
+Chips_TV_Control=Controllo TV
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Modo corrente
+Monitor_Type=Tipo video:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Colori
+
+;For the file version DialogBox
+
+DlgTitle=Informazioni
+File_Name=Nome file
+File_Version=Versione file
+Date=Data
+Time=Ora
+Size_Bytes=Dimensione(Byte)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=L'impostazione del video dell'elaboratore verr‡ modificata. Se il video non funziona correttamente con la nuova impostazione, premere ESC per ripristinare l'impostazione originaria.
+AfterChangeMsg=L'impostazione del video dell'elaboratore Ë stata modificata.
+
+TV_Attributes=TV Italy
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; Dutch Section
+;*******************************************************
+
+;[Netherlands,nld]
+[nld]
+
+HelpFile=CHIPSNLD.HLP
+
+Tablabel=Compaq
+
+Refresh_Rate=Verversingsfrequentie:
+Windows_Default=&Windows Standaard
+Information=Informatie
+Display_Device=Beeldscherm
+CRT=&CRT
+LCD=&LCD
+BOTH=&Beide
+TV=&TV
+Chips_TV_Control=TV-besturing
+NTSC=&NTSC
+PAL=&PAL
+
+Current_Mode=Actieve werkstand
+Monitor_Type=Beeldschermtype:
+
+;For the file version DialogBox
+
+DlgTitle=Informatie
+File_Name=Bestandsnaam
+File_Version=Versie
+Date=Datum
+Time=Tijd
+Size_Bytes=Grootte (kB)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=De instelling van het beeldscherm wordt gewijzigd. Als u niet tevreden bent over de nieuwe instelling, drukt u op ESC om de oude instelling te herstellen.
+AfterChangeMsg=De computerinstellingen zijn gewijzigd.
+
+TV_Attributes=TV Dutch
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; Spanish Section Traditional Sort.
+;*******************************************************
+
+;[Spain,esp]
+[esp]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSESP.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=&Renovar:
+Windows_Default=&Windows Default
+Information=InformaciÛn
+Display_Device=Pant&alla
+CRT=&CRT
+LCD=&LCD
+BOTH=AMBO&S
+TV=&TV
+Chips_TV_Control=TV Control
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Modalidad actual
+Monitor_Type=Tipo de monitor:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Colores
+
+;For the file version DialogBox
+
+DlgTitle=InformaciÛn
+File_Name=Nombre
+File_Version=File VersiÛn
+Date=Fecha
+Time=hora
+Size_Bytes=TamaÒo(Bytes)
+OK=&Bien
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=Se cambiar· el valor de pantalla del sistema. Si la visualizaci¢n no es correcta con el nuevo valor, pulse la tecla ESC para restaurar el valor original.
+AfterChangeMsg=Ha cambiado el valor de pantalla del sistema.
+
+TV_Attributes=TV Spain
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; International English
+;*******************************************************
+
+;[United Kingdom,eng]
+[eng]
+
+HelpFile=CHIPSDSP.HLP
+
+Tablabel=Compaq
+
+Refresh_Rate=Refresh Rate:
+Windows_Default=&Windows Default
+Information=Information
+Display_Device=Display Device
+CRT=&CRT
+LCD=&LCD
+BOTH=&Both
+TV=&TV
+Chips_TV_Control=TV Control
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Current Mode
+Monitor_Type=Monitor Type:
+Colors=Colors
+
+;For the file version DialogBox
+
+DlgTitle=Information
+File_Name=File Name
+File_Version=File Version
+Date=Date
+Time=Time
+Size_Bytes=Size(Bytes)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Attrib&utes
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*********************************************
+; Japanese Section
+;*********************************************
+
+;[ì˙ñ{,jpn]
+[jpn]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSJPN.HLP
+
+;For DBCS Languages ONLY. Not Needed for European
+;Languages
+
+DBCS=1
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=ÿÃ⁄Øº≠(&R)
+Windows_Default=≥®›ƒﬁ≥Ωﬁ √ﬁÃ´Ÿƒ
+Information=ÉhÉâÉCÉoèÓïÒ
+Display_Device=√ﬁ®ΩÃﬂ⁄≤(&D)
+CRT=&CRT
+LCD=&LCD
+BOTH=óºï˚(&B)
+TV=&TV
+Chips_TV_Control=Chips TV êßå‰
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=åªç›ÇÃÉÇÅ[Éh
+Monitor_Type=”∆¿∞ëIë(&M)
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=∂◊∞(&O)
+
+;For the file version DialogBox
+
+DlgTitle=ÉoÅ[ÉWÉáÉìèÓïÒ
+File_Name=Ãß≤Ÿñº:
+File_Version= ﬁ∞ºﬁÆ›:
+Date=ì˙ït
+Time=éûçè
+Size_Bytes=Ãß≤Ÿ ª≤Ωﬁ:
+OK=O&K
+Stretch_Screen=êÖïΩ/êÇíºï‚ê≥ï\é¶
+BeforeChangeMsg=ÉfÉBÉXÉvÉåÉCê›íËÇ™ïœçXÇ≥ÇÍÇ‹Ç∑ÅBêVÇµÇ¢ê›íËÇ™ê≥ÇµÇ≠ï\é¶Ç≥ÇÍÇ»Ç¢èÍçáÇÕÅAESCÇâüÇµÇƒÇ‡Ç∆ÇÃê›íËÇï€ä«ÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB
+AfterChangeMsg=ÉfÉBÉXÉvÉåÉCê›íËÇ™ïœçXÇ≥ÇÍÇ‹ÇµÇΩÅB
+
+AttribDlg=TVëÆê´ê›íË
+TV_Attributes=TVëÆê´ê›íË
+Scan_Mode=ÉXÉLÉÉÉì•ÉÇÅ[Éh
+Interlaced=ÉCÉìÉ^ÉåÅ[ÉX
+Non-interlaced=ÉmÉì•ÉCÉìÉ^ÉåÅ[ÉX
+Filtering=ÉtÉBÉãÉ^ÉäÉìÉO
+On=ÉIÉì
+Off=ÉIÉt
+Panning_Mode=âºëzÉfÉBÉXÉvÉåÉCÉÇÅ[Éh
+Panning=ÉIÉì-âºëzÉfÉBÉXÉvÉåÉC
+Non-Panning=ÉIÉt-âºëzÉfÉBÉXÉvÉåÉC
+
+;*******************************************************
+; PORTUGUESE, BRAZIL
+;*******************************************************
+
+Please notice Hotkeys make sure they are not duplicated
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Brazil,ptb]
+[ptb]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSPTB.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Taxa de RenovaÁ„o:
+Windows_Default=Padr„o do &Windows
+Information=InformaÁıes
+Display_Device=Dispositivo de VÌdeo
+CRT=&CRT
+LCD=&LCD
+BOTH=&Ambos
+TV=&TV
+Chips_TV_Control=Controle de TV com Chips
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Modo Atual
+Monitor_Type=Tipo de Monitor
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+Colors=Cores
+
+;For the file version DialogBox
+DlgTitle=InformaÁıes
+File_Name=Nome do Arquivo
+File_Version=Vers„o do Arquivo
+Date=Data
+Time=Hora
+Size_Bytes=Tamanho (Bytes)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Brazil
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+;  KOREAN Section
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Korean,kor]
+[kor]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSKOR.HLP
+
+;TabLabel is the caption on the control panel tab
+
+TabLabel=Compaq
+
+Refresh_Rate=∏Æ«¡∑πΩ√¿≤:
+Windows_Default=Windows ±‚∫ª∞™(&W)
+Information=¡§∫∏
+Display_Device=µΩ∫«√∑π¿Ã ¿Âƒ°
+CRT=CRT(&C)
+LCD=LCD(&L)
+BOTH=∏µŒ(&B)
+TV=TV(&T)
+Chips_TV_Control=TV ƒ® ¡¶æÓ
+NTSC=NTSC(&N)
+PAL=PAL(&P)
+Current_Mode=«ˆ¿Á ∏µÂ
+Monitor_Type=∏¥œ≈Õ ¡æ∑˘:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=ªˆªÛ
+
+;For the file version DialogBox
+DlgTitle=¡§∫∏
+File_Name=∆ƒ¿œ∏Ì
+File_Version=∆ƒ¿œ πˆ¿¸
+Date=≥Ø¬•
+Time=Ω√∞£
+Size_Bytes=≈©±‚(Bytes)
+OK=»Æ¿Œ(&K)
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Korea
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+; FINLAND, FINNISH
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Finland,fin]
+[fin]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSFIN.HLP
+
+;TabLabel is the caption on the control panel tab
+
+TabLabel=Compaq
+
+Refresh_Rate=Virkistystaajuus:
+Windows_Default=&Windowsin oletus
+Information=Tiedot
+Display_Device=N‰yttˆ
+CRT=&CRT
+LCD=&LCD
+BOTH=&Molemmat (Both)
+TV=&TV
+Chips_TV_Control=TV-muistipiirit
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Nykyinen tila
+Monitor_Type=N‰ytˆn tyyppi:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=V‰rit
+
+;For the file version DialogBox
+DlgTitle=Tiedot
+File_Name=Tiedostonimi
+File_Version=Tiedostoversio
+Date=P‰iv‰ys
+Time=Aika
+Size_Bytes=Koko (tavua)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Finland
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+;  DANISH, DENMARK
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Denmark,dan]
+[dan]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSDAN.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Opfriskningshastighed:
+Windows_Default=&Windows-standard
+Information=Information
+Display_Device=SkÊrmenhed
+CRT=&CRT
+LCD=&LCD
+BOTH=&Begge
+TV=&Tv
+Chips_TV_Control=tv-kontrolenhed
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Aktuel tilstand
+Monitor_Type=Monitortype:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Farver
+
+;For the file version DialogBox
+DlgTitle=Information
+File_Name=Filnavn
+File_Version=Filversion
+Date=Dato
+Time=KlokkeslÊt
+Size_Bytes=St¯rrelse (byte)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Denmark
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+;  TAIWAN, Chinese
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Taiwan,cht]
+[cht]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSCHT.HLP
+
+;TabLabel is the caption on the control panel tab
+
+TabLabel=Compaq
+
+Refresh_Rate=ßÛ∑s≤v°G
+Windows_Default= Windows πw≥]≠»(&W)
+Information=∏Í∞T
+Display_Device=≈„•‹∏À∏m
+CRT= CRT(&C)
+LCD= LCD(&L)
+BOTH=®‚™Ã(&B)
+TV= TV(&T)
+Chips_TV_Control= TV ¥π§˘±±®Ó
+NTSC= NTSC(&N)
+PAL= PAL(&P)
+Current_Mode=•ÿ´eº“¶°
+Monitor_Type=≈„•‹æπ√˛´¨°G
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=¶‚±m
+
+;For the file version DialogBox
+DlgTitle=∏Í∞T
+File_Name=¿…¶W
+File_Version=¿…Æ◊™©•ª
+Date=§È¥¡
+Time=Æ…∂°
+Size_Bytes=§j§p(¶Ï§∏≤’)
+OK=ΩT©w(&K)
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Taiwan
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+;  LANGUAGE,  (CH2DSPCS)
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[PLACE COUNTRY HERE,XXX]
+[XXX]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSXXX.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=À¢–¬¬ £∫
+Windows_Default=Windows ƒ¨»œ…Ë÷√(&W)
+Information=–≈œ¢
+Display_Device=œ‘ æ…Ë±∏
+CRT=“ıº´…‰œﬂπ‹(&C)
+LCD=“∫æßœ‘ æ(&L)
+BOTH=¡Ω’ﬂºÊ±∏(&B)
+TV=µÁ ”(&T)
+Chips_TV_Control=–æ∆¨µÁ ”øÿ÷∆
+NTSC=NTSC(&N)
+PAL=PAL(&P)
+Current_Mode=µ±«∞ƒ£ Ω
+Monitor_Type=œ‘ æ∆˜¿‡–Õ£∫
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=…´≤ 
+
+;For the file version DialogBox
+DlgTitle=–≈œ¢
+File_Name=Œƒº˛√˚
+File_Version=Œƒº˛∞Ê±æ
+Date=Date»’∆⁄
+Time= ±º‰
+Size_Bytes=¥Û–°(◊÷Ω⁄ ˝)
+OK=»∑∂®(&K)
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV XXXXXX
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+;*******************************************************
+;  NORWAY, NYNORSK
+;*******************************************************
+
+;Comments are preceded by a colon ";". Please do not translate the
+;comments for the Localization purpose.
+
+;[Norway,non]
+[non]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSNON.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Oppfriskningshastighet:
+Windows_Default=Standard i &Windows
+Information=Informasjon
+Display_Device=Vis enhet
+CRT=&CRT
+LCD=&LCD
+BOTH=&Begge
+TV=&TV
+Chips_TV_Control=TV-kontroll
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Gjeldende modus
+Monitor_Type=Skjermtype:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=Farger
+
+;For the file version DialogBox
+DlgTitle=Informasjon
+File_Name=Filnavn
+File_Version=Filversjon
+Date=Dato
+Time=Klokkeslett
+Size_Bytes=St¯rrelse (byte)
+OK=O&K
+Stretch_Screen=&Stretch Screen
+BeforeChangeMsg=The display setting of your computer will be changed. If it does not display properly with the new setting, press ESC to restore to your original setting.
+AfterChangeMsg=The display setting of your computer has been changed.
+
+TV_Attributes=TV Norway
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning
+
+
+;*******************************************************
+; SWEDISH Section
+;*******************************************************
+
+;[Swedish,sve]
+[sve]
+
+;HelpFile used for specify the help file name
+;to support the specific language.
+
+HelpFile=CHIPSSVE.HLP
+
+;TabLabel is the caption on the control panel tab
+
+Tablabel=Compaq
+
+Refresh_Rate=Uppdateringsfrekvens:
+Windows_Default=&Windows-standard
+Information=Information
+Display_Device=Bildsk‰rm
+CRT=&CRT (extern bildsk‰rm)
+LCD=&LCD (intern bildsk‰rm)
+BOTH=&BÂda
+TV=&TV
+Chips_TV_Control=///Kontroll fˆr TV-funktion
+NTSC=&NTSC
+PAL=&PAL
+Current_Mode=Aktuellt l‰ge
+Monitor_Type=Bildsk‰rmstyp:
+
+;In the Current mode text the only lauguage
+;sensitive string is Colors:
+
+Colors=F‰rger
+
+;For the file version DialogBox
+DlgTitle=Information
+File_Name=Filnamn
+File_Version=Filversion
+Date=Datum
+Time=Tid
+Size_Bytes=Storlek (Byte)
+OK=O&K
+Stretch_Screen=ƒ&ndra bildstorlek.
+BeforeChangeMsg=Datorns bildsk‰rmsinst‰llningar kommer att ‰ndras. Om sk‰rmbilden inte ser korrekt ut med de nya inst‰llningarna kan du Âterst‰lla de ursprungliga sk‰rminst‰llningarna genom att trycka pÂ ESC.
+AfterChangeMsg=Bildsk‰rmsinst‰llningarna har ‰ndrats.
+
+TV_Attributes=TV Sweden
+Scan_Mode=Scan Mode
+Interlaced=&Interlaced
+Non-interlace=&Non-interlaced
+Filtering=Filtering
+On=O&n
+Off=O&ff
+Panning_Mode=Panning Mode
+Panning=&Panning
+Non-Panning=Non-P&anning

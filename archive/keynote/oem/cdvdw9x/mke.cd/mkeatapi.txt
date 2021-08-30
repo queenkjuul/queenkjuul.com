@@ -1,0 +1,74 @@
+
+  Panasonic ATAPI CD-ROM Device Driver for OS/2 Documentation
+  -- MKEATAPI.ADD Ver.1.12 -- 
+
+  Command Line Parameter
+  Parameter definitions:
+
+    [/V] = Verbose Mode
+    Displays controller status and drive type during OS/2 initialization.
+
+    [/A:n] = Adapter Number
+    Adapter 0 has default parameters for the primary adapter.
+    Adapter 1 has default parameters for the secondary adapter.
+
+    [/P:nnn] = Base I/O Port Address (hex)
+    This parameter overrides the default base I/O port address for the adapter
+    indecated. The default I/O address for primary is (1F0) and for seconday
+    is (170).
+    If you will set this parameter, you should set /I: parameter.
+
+    [/I:xx]  = IRQ level (dec)
+    This parameter overrides the default IRQ Number for the adapter indecated.
+    The default IRQ level for primray is (14) and for seconday is (15).
+    If you will set this parameter, you should set /P: parameter.
+
+    [/NI] = No Interrupt Mode( Polling Mode )
+    When you use IDE HDD and ATAPI CD-ROM drive at the same adapter(primary or
+    secondary), the MKEATAPI.ADD driver is automatically used this mode.
+
+    [/IOR] = I/O Channel Ready Supported Mode
+    For the adapter with I/O channel ready, the MKEATAPI.ADD driver can
+    designate the fastest read mode.
+
+  Examples:
+    ; scan to primary and secondary adapter.
+    BASEDEV=MKEATAPI.ADD /V
+
+    ; scan to secondary adapter with I/O channel ready.
+    BASEDEV=MKEATAPI.ADD /V /A:1 /IOR
+
+    ; scan to another adapter(I/O address 1E8  IRQ 11) with I/O channel ready.
+    BASEDEV=MKEATAPI.ADD /V /P:1E8 /I:11 /IOR
+
+
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  CAUTION:
+     OS/2 Warp has ATAPI CD-ROM filter driver(IBMIDECD.FLT). If problems occur
+     using the IBMIDECD filter, you fix lines in your OS/2 CONFIG.SYS file has
+     to be edited as follows:
+
+       rem BASEDEV=IBMIDECD.FLT
+
+     At the end of the file, add the following statement
+
+       BASEDEV=MKEATAPI.ADD /V
+
+     and copy to root directory on the OS/2 system drive.
+     In this time, if the CR-ROM drive is attached as master to primary or 
+     secondary, you should fix a line in your OS/2 CONFIG.SYS file has to be
+     edited as follows:
+
+       BASEDEV=IBM1S506.ADD /A:x /I
+
+     The /A parameter refers to the adapter number that the CD-ROM is attached
+     to.The /I parameter indicates that the IBM1S506 driver should not attempt
+     to initialize the adapter indicated.
+
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+  Trademarks and Copyrights
+    OS/2 is a trademarks of International Business Machines Corporation.
+
+

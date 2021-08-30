@@ -1,0 +1,155 @@
+1:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+ Setup installiert das Programm             
+ in das angegebene Verzeichnis.             
+ Laufwerk und Verzeichnis k”nnen beliebig   
+ ge„ndert werden.                           
+                                            
+                                            
+                                            
+                      [ESC --> Abbrechen]   
+2:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+  Bitte w„hlen Sie Ihre Laufwerkseinstellung
+  w„hrend des Hochstartens.Wenn Sie die     
+  I/O adresse auf Tertiary oder Quaternary  
+  stellen m”chten w„hlen Sie bitte          
+  'SELECT I/O PORT'.                        
+      [ ]   AUTO SELECT                     
+      [ ]   SELECT I/O PORT                 
+                                            
+                       [ESC -> Abbrechen]   
+3:46b-----------------------------------------
+ TEAC CD-ROM Setup-Programm                   
+                                              
+ W„hlen Sie eine der folgenden Adressen.      
+                                              
+      [ ]   Primary   (1F0h)                  
+      [ ]   Secondary (170h)                  
+      [ ]   Tertiary  (1E8h)                  
+      [ ]   Quaternary(168h)                  
+                                              
+                         [ESC -> Abbrechen]   
+4:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+ W„hlen Sie fr CD-ROM Master-oder          
+ Slave-Betrieb aus.                         
+      [ ]   Master                          
+      [ ]   Slave                           
+      [ ]   Master & Slave                  
+                                            
+                       [ESC -> Abbrechen]   
+5:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+     Der angegebene Pfad ist                
+     nicht zul„ssig.                        
+                                            
+                                            
+6:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+     Die Plattenkapazit„t reicht            
+     nicht aus.                             
+                                            
+                                            
+7:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+        bertrage die Dateien...            
+                                            
+                                            
+                                            
+                                            
+                                            
+8:50b---------------------------------------------
+ TEAC CD-ROM Setup-Programm                       
+  Setup kann fr Sie die folgende Zeile in Ihre   
+               einfgen.                          
+                                                  
+                                                  
+                                                  
+                                                  
+                                                  
+            [ ]   Jetzt modifizieren              
+            [ ]   Nicht modifizieren              
+                                                  
+9:44b---------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+ Wollen Sie Setup wirklich abbrechen?       
+                                            
+     [Ja]  ... EINGABETASTE                 
+     [Nein]... ESC                          
+                                            
+10:50b--------------------------------------------
+ TEAC CD-ROM Setup-Programm                       
+  Setup kann fr Sie die folgenden Žnderungen in  
+               durchfhren.                       
+  (Aktuell)                                       
+                                                  
+                                                  
+                                                  
+                                                  
+  (Ge„ndert)                                      
+                                                  
+                                                  
+                                                  
+                                                  
+            [ ]   Jetzt modifizieren              
+            [ ]   Nicht modifizieren              
+                                                  
+11:44b--------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+  Das TEAC CD-ROM Setup-Programm wurde      
+  erfolgreich beendet.                      
+  Bitte starten Sie Ihren Rechner neu.      
+                                            
+              [Eingabetaste -> Abbrechen]   
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+:                                           
+13:44b--------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+  Die Datei MSCDEX wurde im Verzeichnis DOS 
+  nicht gefunden.                           
+  Die Installation ist fehlgeschlagen.      
+                                            
+                                            
+14:44b--------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+               wurde im Wurzelverzeichnis   
+  von C angelegt.                           
+                                            
+                                            
+15:44b--------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+       Geben Sie Laufwerk und Pfad          
+        zu "MSCDEX.EXE" ein.                
+                                            
+                                            
+                                            
+                                            
+                      [ESC --> Abbrechen]   
+16:44b--------------------------------------
+ TEAC CD-ROM Setup-Programm                 
+                                            
+   "MSCDEX.EXE" im angegebenen Verzeichnis  
+    nicht gefunden.                         
+    Eingabe bitte wiederholen.              
+                                            
+                                            
+                                            
+end:
+

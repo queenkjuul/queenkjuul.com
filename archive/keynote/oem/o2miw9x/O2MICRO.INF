@@ -1,0 +1,389 @@
+; THIS IS THE O2MICRO INF FILE FOR WINDOWS 98
+; Copyright (c) 1998 O2Micro Corp.
+
+;*** IMPORTANT ***: If you modify the section related to real-mode driver
+; removal, also update subase.inf accordingly.
+; Section to look at (PCMCIA under BaseWinOptions)
+
+[Version]
+Signature="$CHICAGO$"
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=PCMCIA
+ClassGUID={4d36e977-e325-11ce-bfc1-08002be10318}
+Provider=%O2MicroMfg%
+
+;
+;   Information for installing the PCMCIA class
+;
+[ClassInstall]
+AddReg=ClassAddReg
+
+[ClassAddReg]
+HKR,,,,%ClassName%
+HKR,,Installer,,MSPCIC.dll
+HKR,,Icon,,0
+HKR,,EnumPropPages,,"MSPCIC.dll, EnumClassPropPages"
+
+[SourceDisksNames]
+1="O2Micro Installation Disk",,
+
+[SourceDisksFiles]
+CB511717.W98=1
+
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+
+;
+;   List of manufacturers and devices
+;
+[Manufacturer]
+%MS%=MS
+%O2MicroMfg%=O2Micro
+
+[MS]
+%PCCard.DeviceDesc%=NODRV,PCCARD
+%PCCard.DeviceDesc%=NODRV,PCMCIA\PCCARD
+
+[NODRV]
+
+[ControlFlags]
+ExcludeFromSelect=PCCARD
+ExcludeFromSelect=PCMCIA\PCCARD
+
+[O2Micro]
+%PCI\VEN_1217&DEV_6872.DeviceDesc%=O2CARDBUS, PCI\VEN_1217&DEV_6872
+%PCI\VEN_1217&DEV_6832.DeviceDesc%=O2CARDBUS, PCI\VEN_1217&DEV_6832
+%PCI\VEN_1217&DEV_6836.DeviceDesc%=O2CARDBUS, PCI\VEN_1217&DEV_6836
+
+;
+; Card bus
+;
+[O2CARDBUS]
+CopyFiles=O2Copyfiles,CSCopyfiles
+AddReg=CSReg, CARDBUSReg
+
+[CARDBUSReg]
+HKR,,Driver,,"CBSS.VXD"
+
+[CARDBUS.PosDup]
+*PNP0E00
+
+[CSReg]
+HKR,,DevLoader,,"PCCARD.vxd"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,,"SysTray.Exe"
+
+;
+;   Card services information
+;
+[O2Copyfiles]
+CBSS.VXD,CB511717.W98,,4
+
+[CSCopyfiles]
+PCCARD.VXD,,,4
+CSMAPPER.SYS,,,4
+CARDDRV.EXE,,,4
+SRAMMTD.VXD,,,4
+FLS1MTD.VXD,,,4
+FLS2MTD.VXD,,,4
+
+;
+;   Socket Services information
+;
+[ForceCopy]
+HKR,,NoSetupUI,,1
+
+;
+;   Config.Sys drivers to remove
+;
+[ConfigSysDrivers]
+;
+; Databook
+;
+CARDSOCK.SYS
+CTALKCS.EXE
+CARDTALK.SYS
+ARIMATN.SYS
+CARDTALK.EXE
+
+;
+; SystemSoft
+;
+SS365SL.EXE
+SS365SLB.EXE
+CS.EXE
+SSDBOOK.EXE
+SSCIRRUS.EXE
+SSVLSI.EXE
+CIC.EXE
+MS-FLASH.SYS
+RALLOC.EXE
+SCARD29.EXE
+SRAMDRV.EXE
+S_IDE.EXE
+CARDID.EXE
+ATAINIT.EXE
+ATADRV.EXE
+CSALLOC.EXE
+CARDINFO.EXE
+SS365LP.EXE
+SSVADEM.EXE
+SSIBM720.EXE
+MTDDRV.EXE
+MTSRAM.EXE
+CARD_BAP.EXE
+PCIC.EXE
+MEMDRV.EXE
+DBLFLASH.EXE
+SS6941.EXE
+SS6942.EXE
+SSPPEC.EXE
+MTAA.EXE
+MTAB.EXE
+MTI1.EXE
+MTI2P.EXE
+MTAMP.EXE
+SSMSFLSH.EXE
+FTL.EXE
+CS_APM.EXE
+CARDLITE.EXE
+SSTPIC95.EXE
+
+;
+; Phoenix/Toshiba
+;
+CACCESS.SYS
+PCMP615B.EXE
+PCMCS.EXE
+PCMMTD.EXE
+PCMATA.SYS
+PCMATADD.SYS
+PCMSCD.EXE
+PCMFDD.EXE
+PCMFFCS.EXE
+PCMSS.EXE
+CNFIGNAM.EXE
+PCM.EXE
+PCMRMAN.EXE
+PCMRMAN.SYS
+PCMSSCL.EXE
+PCMSSDB.EXE
+PCMSSIT.EXE
+PCMSSRC.EXE
+PCMSSVD.EXE
+PCMWARN.EXE
+PCMCS95.EXE
+
+;
+; Award
+;
+PCSS.EXE
+SSPCIC.EXE
+SSPHIC.EXE
+SSTACT.EXE
+SSTCIC.EXE
+SSTPP163.EXE
+PCCS.EXE
+PCRM.EXE
+PCENABLE.EXE
+PCDISK.EXE
+PCPREP.EXE
+PCCARD.EXE
+SS82086.SYS
+PCDIRTY.EXE
+DOSCARD.EXE
+TOPIC.SYS
+
+;
+; Compaq
+;
+PCMSMIX.EXE
+
+;
+; IBM
+;
+IBMDOSCS.SYS
+PCMCIA.SYS
+IBMDSS01.SYS
+IBM2SS01.SYS
+DICRMU01.SYS
+ICRMU01.SYS
+$ICPMDOS.SYS
+$ICPMOS2.SYS
+PCMCIAON.EXE
+PCMCIAOF.EXE
+EZPLAY.EXE
+EZPLAYW.EXE
+AUTODRV.SYS
+AUTODRV2.SYS
+SRAMDRV2.SYS
+DISKDRV.SYS
+IBM2SS02.SYS
+IBM2SS03.SYS
+IBMDSS02.SYS
+IBMDSS03.SYS
+SS2PCIC1.SYS
+SSDPCIC1.SYS
+SS2TCIC1.SYS
+SSDTCIC1.SYS
+VPCMCIA.SYS
+IBMDOSCS.SYS
+IBMDSCSE.SYS
+RMUDOSAT.SYS
+PCM2FLSH.SYS
+PAWATA.SYS
+PAWATAS.SYS
+PAWATASF.SYS
+FLSH2MTD.SYS
+PCMSSDIF.SYS
+FLSHDMTD.SYS
+EZLAUNCH.EXE
+
+
+;
+; TDK
+;
+TDKMODEM.EXE
+MODINSTL.EXE
+MODACTIV.EXE
+SET3300.COM
+TDKCARD.EXE
+SSDOS.COM
+
+;
+; HP
+;
+OBSS.EXE
+
+;
+; Enablers
+;
+ENABLEEA.EXE
+SKTNDIS.EXE
+MA460.SYS
+cendis.exe
+b8895.com
+modem.exe
+PCMSM.COM
+ETHERNET.SYS
+POINTETH.SYS
+TOSHETH.SYS
+PCMDMCS.COM
+PCMNICCS.DOS
+CONXDRV.EXE
+PMODEM.SYS
+PCMCIA1.SYS
+PCMCIA2.SYS
+SETPCMC.EXE
+PCMCIA.EXE
+S-PCMCIA.EXE
+T-PCMCIA.EXE
+MSETUP.EXE
+PRR.EXE
+MODCFG.EXE
+ADAPTER.EXE
+SS365SL.EXE
+SSDBOOK.EXE
+CS.EXE
+CSALLOC.EXE
+PCMDM.COM
+ECCTEST.EXE
+POINTETH.SYS
+TOSHETH.SYS
+SHARPETH.SYS
+PCMDM.DOS
+NICESS.COM
+VMISS.SYS
+FJTMAC.DOS
+PSETUP.EXE
+POINTETH.SYS
+TOSHTR.SYS
+TOKENRNG.SYS
+POINTTR.SYS
+PDLTOK.DOS
+PCMDMCS.COM
+PCMNICCS.DOS
+SETMHZ.EXE
+NMCMSSND.SYS
+SWAPBOX.SYS
+1130_XX.SYS
+
+;
+;   Autoexec.Bat drivers to remove
+;
+[AutoexecBatDrivers]
+ENABLEEA
+SKTNDIS
+SETMHZ
+CS_APM
+CECFG
+OBSS
+WJSSENAB
+CEMCFG
+CE2CFG
+CXCFG
+CFG2INI
+
+;
+;   System.Ini drivers to remove
+;
+[SystemIniDrivers]
+;
+; compaq
+;
+cs.386
+cpqevent.386
+ssvrdd.386
+ssvcd311.386
+pccard.386
+pccardrm.386
+
+;
+; Phoenix
+;
+PCMVCD.386
+
+;
+; SystemSoft
+;
+cs_pmc.386
+vpmc.386
+NMCMSSND.386
+
+;
+;   System.Ini drivers= DLLs to remove
+;
+[SystemIniDriversLine]
+sswincs.dll
+nmcmssnd.drv
+
+;
+; SystemSoft
+;
+cardpwrd.drv
+pmc.drv
+
+
+;
+;   Win.Ini run= EXEs to remove
+;
+[WinIniRunLine]
+cpqevent
+pccard
+cardview
+
+[Strings]
+ClassName="PCMCIA socket"
+MS="Microsoft"
+
+;
+;   Manufacturer name strings
+;
+O2MicroMfg="O2Micro Corp."
+
+;
+;   Device Decription strings
+;
+PCCard.DeviceDesc="PCMCIA Card Services"
+PCI\VEN_1217&DEV_6872.DeviceDesc="O2Micro OZ6812 CardBus Controller"
+PCI\VEN_1217&DEV_6832.DeviceDesc="O2Micro OZ6832/6833 CardBus Controller"
+PCI\VEN_1217&DEV_6836.DeviceDesc="O2Micro/ROHM OZ6836/6860 CardBus Controller"

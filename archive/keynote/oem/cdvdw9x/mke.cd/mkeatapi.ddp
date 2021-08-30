@@ -1,0 +1,10 @@
+
+:TITLE
+Panasonic CR-57x/58x attached to IDE(ATAPI) Interface
+
+:CONFIG
+BASEDEV=MKEATAPI.ADD
+
+:FILES
+MKEATAPI.ADD \MKEATAPI.ADD
+

@@ -1,0 +1,129 @@
+; O2init.doc
+; This is the document file and the sample data file for o2init.sys
+;  and o2init.com.
+; This file can be executed as a demo, try 'o2init o2init.doc'
+; Warning: it writes to com1 and other devices!
+
+# Usage: 'device=o2init.sys <datafile>' or 'o2init.com <datafile>'
+# Commands are read from the datafile and acted on.  The data file
+# is limited to 24kb.  If you want to do more than 24k (!), split
+# the data into 2 files and run o2init twice.
+
+; Comments are marked by either ; or #, and extend to the end of the line.
+; All numbers are hexidecimal.
+
+# The available commands are:
+#
+# PCIFIND vend dev func - searches for specified vendor:device:func, sets the found flag.
+# PCIMORE vend dev func - searches for specified vendor:device:func, starts at last found device, sets the found flag.
+# IBFIND port data - compares input port byte value to data, sets found flag.
+# IWFIND port data - compares input port word value to data, sets found flag.
+# IDFIND port data - compares input port dword value to data, sets found flag.
+# PCICOMPAREB data - compares PCI byte from current device to data, sets found flag.
+# PCICOMPAREW data - compares PCI word from current device to data, sets found flag.
+# PCICOMPARED data - compares PCI dword from current device to data, sets found flag.
+#
+# PCIREADB reg - reads the byte at reg from the last found PCI device.
+# PCIREADW reg - reads a word at reg from last PCIFIND device. Reg must be even.
+# PCIREADD reg - reads a dword at reg.  Reg must be 0, 4, 6, 12, etc.
+# PCIWRITEB reg data - writes byte to last found PCI device.
+# PCIWRITEW reg data - writes word to PCI device. Reg must be even.
+# PCIWRITED reg data - writes dword to PCI device. Reg must be 0, 4, 8, etc.
+# PCIORB reg ordata - reads byte, ORs with data and writes byte to PCI device.
+# PCIORW reg ordata - reads word, ORs with data and writes byte to PCI device.
+# PCIORD reg ordata - reads dword, ORs with data and writes byte to PCI device.
+# PCIANDB reg anddata - reads byte, ANDs with data and writes byte to PCI device.
+# PCIANDW reg anddata - reads word, ANDs with data and writes byte to PCI device.
+# PCIANDD reg anddata - reads dword, ANDs with data and writes byte to PCI device.
+# PCIXORB reg anddata - reads byte, XORs with data and writes byte to PCI device.
+# PCIXORW reg anddata - reads word, XORs with data and writes byte to PCI device.
+# PCIXORD reg anddata - reads dword, XORs with data and writes byte to PCI device.
+# Note: PCI regs are from 0 to FF
+#
+# IB port - inputs port byte value, displays.
+# IW port - inputs port word value, displays.
+# ID port - inputs port dword value, displays.
+# OB port data - outputs port byte value.
+# OW port data - outputs port word value.
+# OD port data - outputs port dword value.
+# ORB port data - inputs byte, ORs with data, outputs result.
+# ORW port data - inputs word, ORs with data, outputs result.
+# ORD port data - inputs dword, ORs with data, outputs result.
+# ANDB port data - inputs byte, ANDs with data, outputs result.
+# ANDW port data - inputs word, ANDs with data, outputs result.
+# ANDD port data - inputs dword, ANDs with data, outputs result.
+# XORB port data - inputs byte, XORs with data, outputs result.
+# XORW port data - inputs word, XORs with data, outputs result.
+# XORD port data - inputs dword, XORs with data, outputs result.
+#
+# QUIET - minimum screen output, shows finds and errors only.
+# SHOW  - medimum screen output, shows finds, errors, and read/input results.
+# VERBOSE - all screen output.
+# PAUSE - stops and waits for a keypress, useful for debugging.
+
+; The 'found' flag is powerful.  If a find fails, all commands will be
+; ignored until a sucessful find happens.  Writes to a device can be
+; skipped if the device is not found in the system.  A PCI find, compare,
+; or an input find will set the 'found' flag.  A PCIfind FFFF FFFF will
+; always be found, an inputfind from FFFF will always be found, and
+; either will set the found flag TRUE.  When the program starts, the
+; found file is TRUE.
+
+# Commands before any FIND will always happen, but PCI commands will
+# fail if there is not a preceeding PCI find.  PCI commands use BIOS
+# calls.  If there is no PCI bios, strange things will happen on PCI
+# functions.
+
+# The startup default output flag is SHOW
+
+orb 3fb 80              # set DLAB bit
+ob 3f8 0C
+ob 3f9 0                # set com1 to 9600 baud
+andb 3fb 7F             # clear DLAB bit
+ob 3f9 0
+ob 3fC 03               # set handshake lines on
+ib 3f8
+OB 3f8 59               # send some serial data
+OB 3f8 6F
+OB 3f8 21
+ob 3f8 0d
+ob 3f8 0a
+
+# output flag - use Quiet, Show, Verbose for minimum, medium, most output
+verbose                 ; show all output
+
+pcifind 1217 6836 1     ; find O2Micro 6836 cardbus controller, function 1
+
+pciwritew 44 3E0        ; these commands will not execute if the
+pciorw 4 7              ;   previous pcifind failed.
+ob 3e0 0
+ibfind 3e1 83           ; is pcmcia controller at 3e0?
+ob 3e0 02
+orb 3e1 10              ; set bit 4 of pcmcia register 2
+
+show                    ; A little less output
+
+pcifind 8086 122D 0     # dump registers for this device
+
+pcireadd 0
+pcireadd 4
+pcireadd 8
+pcireadd C
+pcireadd 10
+pcireadd 14
+pcireadd 18
+pcireadd 1C
+pcireadd 20
+pcireadd 24
+pcireadd 28
+pcireadd 2C
+pause                   # stop to read the data on screen
+
+pcifind FFFF FFFF 0     # this special pcifind will always be 'found'
+OB 3f8 4a               # these commands will always happen.
+OB 3f8 61
+OB 3f8 79
+ob 3f8 0d
+ob 3f8 0a
+
+

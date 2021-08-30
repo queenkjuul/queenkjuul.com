@@ -1,0 +1,54 @@
+[Source Media Descriptions]
+  ;  1  = "Windows NT Setup Disk #1"  , TAGFILE = disk1
+     2  = "Windows NT Setup CD-ROM Disk"  , TAGFILE = disk2
+
+[Installable.Drivers]
+opl3sae = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(English)" , , ,
+opl3saf = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(French)" , , ,
+opl3sas = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(Spanish)" , , ,
+opl3sai = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(Italian)" , , ,
+opl3sag = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(German)" , , ,
+opl3saj = 2:opl3sa32.dll, "wave,MIDI,aux,mixer" , "OPL3-SA Sound System(Japanese)" , , ,
+
+[opl3sae]
+2:opl3sa.sys
+2:\engus\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[opl3saf]
+2:opl3sa.sys
+2:\fre\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[opl3sas]
+2:opl3sa.sys
+2:\spa\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[opl3sai]
+2:opl3sa.sys
+2:\ita\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[opl3sag]
+2:opl3sa.sys
+2:\ger\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[opl3saj]
+2:opl3sa.sys
+2:\jpn\MIDIMAP.CFG
+2:opl3sax.cpl
+
+[Default File Settings]
+"STF_BACKUP"     = "*"
+"STF_COPY"       = "YES"
+"STF_DECOMPRESS" = "YES"
+;"STF_OVERWRITE"  = "ALWAYS"
+"STF_READONLY"   = ""
+"STF_ROOT"       = ""
+"STF_SETTIME"    = "YES"
+"STF_TIME"       = "1"
+"STF_VITAL"      = "YES"
+
+

@@ -1,0 +1,269 @@
+[Version]
+Signature="$WINDOWS NT$"
+ClassGuid={4D36E96C-E325-11CE-BFC1-08002BE10318}
+Class=MEDIA
+Provider=%YMH%
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+opl3sa32.dll = 1
+opl3sax.cpl = 1
+opl3sa.sys = 1
+midimap.cfg = 1
+
+[DestinationDirs]
+opl3sa32dll.CopyList = 11 ; DIRID_SYSTEM
+opl3saxcpl.CopyList = 11 ; DIRID_SYSTEM
+opl3sasys.CopyList = 12 ; DIRID_DRIVERS
+midimap.CopyList = 11 ; DIRID_DRIVERS
+
+[Manufacturer]
+%YMHMfgName%=YAMAHA
+
+[YAMAHA]
+;
+; NOTE:  We omit hardware IDs for each of these devices, so that the user will
+;        be able to supply an OEM-supplied driver with fuller functionality at
+;        the "Found New Hardware" popup.
+;
+%*YMH0021.DeviceDescEngUS%=YMH0021_DeviceEngUS,, *YMH0007
+%*YMH0021.DeviceDescEngUS%=YMH0021_DeviceEngUS,, *YMH0021
+%*YMH0021.DeviceDescFre%=YMH0021_DeviceFre,, *YMH0007
+%*YMH0021.DeviceDescFre%=YMH0021_DeviceFre,, *YMH0021
+%*YMH0021.DeviceDescSpa%=YMH0021_DeviceSpa,, *YMH0007
+%*YMH0021.DeviceDescSpa%=YMH0021_DeviceSpa,, *YMH0021
+%*YMH0021.DeviceDescIta%=YMH0021_DeviceIta,, *YMH0007
+%*YMH0021.DeviceDescIta%=YMH0021_DeviceIta,, *YMH0021
+%*YMH0021.DeviceDescGer%=YMH0021_DeviceGer,, *YMH0007
+%*YMH0021.DeviceDescGer%=YMH0021_DeviceGer,, *YMH0021
+%*YMH0021.DeviceDescJpn%=YMH0021_DeviceJpn,, *YMH0007
+%*YMH0021.DeviceDescJpn%=YMH0021_DeviceJpn,, *YMH0021
+
+%*YMH0022.DeviceDesc%=YMH0022_Device,, *YMH0006
+%*YMH0022.DeviceDesc%=YMH0022_Device,, *YMH0022
+%*YMH0023.DeviceDesc%=YMH0023_Device,, *YMH0023
+%*YMH0024.DeviceDesc%=YMH0024_Device,, *YMH0024
+%*YMH002F.DeviceDesc%=YMH002F_Device,, *YMH002F
+
+[YMH0021_DeviceEngUS.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapEngUS.CopyList
+AddReg=YMH0021EngUS.AddReg, OPL3SAEngUS.AddReg
+;AddReg=WAVE.AddReg, YMH0021EngUS.AddReg, OPL3SAEngUS.AddReg
+Reboot
+
+[YMH0021_DeviceEngUS.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+[YMH0021_DeviceFre.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapFre.CopyList
+AddReg=YMH0021Fre.AddReg, OPL3SAFre.AddReg
+;AddReg=WAVE.AddReg, YMH0021Fre.AddReg, OPL3SAFre.AddReg
+Reboot
+
+[YMH0021_DeviceFre.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+[YMH0021_DeviceSpa.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapSpa.CopyList
+AddReg=YMH0021Spa.AddReg, OPL3SASpa.AddReg
+;AddReg=WAVE.AddReg, YMH0021Spa.AddReg, OPL3SASpa.AddReg
+Reboot
+
+[YMH0021_DeviceSpa.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+[YMH0021_DeviceIta.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapIta.CopyList
+AddReg=YMH0021Ita.AddReg, OPL3SAIta.AddReg
+;AddReg=WAVE.AddReg, YMH0021Ita.AddReg, OPL3SAIta.AddReg
+Reboot
+
+[YMH0021_DeviceIta.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+[YMH0021_DeviceGer.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapGer.CopyList
+AddReg=YMH0021Ger.AddReg, OPL3SAGer.AddReg
+;AddReg=WAVE.AddReg, YMH0021Ger.AddReg, OPL3SAGer.AddReg
+Reboot
+
+[YMH0021_DeviceGer.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+[YMH0021_DeviceJpn.NT]
+CopyFiles=opl3sa32dll.CopyList,opl3sasys.CopyList,opl3saxcpl.CopyList,midimapJpn.CopyList
+AddReg=YMH0021Jpn.AddReg, OPL3SAJpn.AddReg
+;AddReg=WAVE.AddReg, YMH0021Jpn.AddReg, OPL3SAJpn.AddReg
+Reboot
+
+[YMH0021_DeviceJpn.NT.Services]
+AddService = opl3sa, 0x00000002, opl3sa_Service_Inst
+
+
+
+
+[opl3sa_Service_Inst]
+DisplayName    = %opl3sa.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 1                  ; SERVICE_SYSTEM_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\opl3sa.sys
+LoadOrderGroup = Base
+
+[opl3sa32dll.CopyList]
+opl3sa32.dll
+
+[opl3sasys.CopyList]
+opl3sa.sys
+
+[opl3saxcpl.CopyList]
+opl3sax.cpl
+
+[midimapEngUS.CopyList]
+\EngUS\midimap.cfg
+
+[midimapFre.CopyList]
+\fre\midimap.cfg
+
+[midimapSpa.CopyList]
+\spa\midimap.cfg
+
+[midimapIta.CopyList]
+\ita\midimap.cfg
+
+[midimapGer.CopyList]
+\ger\midimap.cfg
+
+[midimapJpn.CopyList]
+\jpn\midimap.cfg
+
+
+;
+;AddReg Sections
+;
+
+[YMH0021EngUS.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescEngUS%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescEngUS%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescEngUS%
+
+[OPL3SAEngUS.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+[YMH0021Fre.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescFre%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescFre%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescFre%
+
+[OPL3SAFre.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+[YMH0021Spa.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescSpa%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescSpa%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescSpa%
+
+[OPL3SASpa.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+[YMH0021Ita.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescIta%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescIta%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescIta%
+
+[OPL3SAIta.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+[YMH0021Ger.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescGer%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescGer%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescGer%
+
+[OPL3SAGer.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+[YMH0021Jpn.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Description,,%*YMH0021.DeviceDescJpn%
+HKR,Drivers\midi\opl3sa32.dll,Description,,%V_INTERNAL%
+HKR,Drivers\mixer\opl3sa32.dll,Description,,%*YMH0021.DeviceDescJpn%
+HKR,Drivers\aux\opl3sa32.dll,Description,,%*YMH0021.DeviceDescJpn%
+
+[OPL3SAJpn.AddReg]
+HKR,Drivers\wave\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\midi\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\mixer\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers\aux\opl3sa32.dll,Driver,,opl3sa32.dll
+HKR,Drivers,SubClasses,,"wave,midi,aux,mixer"
+
+
+
+;
+; The following sections are left empty since this INF doesn't provide support
+; the corresponding functions.  Installation for these functions will actually
+; fail, but this allows us to give the user a 'Windows NT default driver" for
+; each function on the card.
+;
+[YMH0022_Device.NT]
+[YMH0023_Device.NT]
+[YMH0024_Device.NT]
+[YMH002F_Device.NT]
+
+;
+; We also have to have the corresponding service install sections for the above
+; 'dummy' install sections, or else the NT MEDIA class installer will reject the
+; driver node as Win95-only.
+;
+[YMH0022_Device.NT.Services]
+[YMH0023_Device.NT.Services]
+[YMH0024_Device.NT.Services]
+[YMH002F_Device.NT.Services]
+
+;
+; Localizable text.
+;
+[Strings]
+YMH = "YAMAHA Corporation"
+MediaClassName = "Sound, video and game controllers"
+YMHMfgName = "YAMAHA Corporation"
+DiskId = "YAMAHA OPL3SAx Drivers Disk"
+
+*YMH0021.DeviceDescEngUS = "OPL3-SAx Plug and Play(English)"
+*YMH0021.DeviceDescFre = "OPL3-SAx Plug and Play(French)"
+*YMH0021.DeviceDescSpa = "OPL3-SAx Plug and Play(Spanish)"
+*YMH0021.DeviceDescIta = "OPL3-SAx Plug and Play(Italian)"
+*YMH0021.DeviceDescGer = "OPL3-SAx Plug and Play(German)"
+*YMH0021.DeviceDescJpn = "OPL3-SAx Plug and Play(Japanese)"
+*YMH0022.DeviceDesc = "OPL3-SAx GamePort"
+V_INTERNAL = "OPL3-SAx FM Synthesizer"
+*YMH0023.DeviceDesc = "OPL3-SAx ComPort"
+*YMH0024.DeviceDesc = "Standard IDE/ESDI Hard Disk Controller"
+*YMH002F.DeviceDesc = "OPL3-SAx Reserved"
+
+opl3sa.SvcDesc = "YAMAHA OPL3-SAx Driver"

@@ -1,0 +1,49 @@
+# This o2init data file is for the O2Micro OZ6832C2 Cardbus Controller
+
+verbose                 # show all output
+
+pcifind 1217 6832 0     # find the OZ6832/OZ6833 device?
+pcicompareb 8 03        # is this a 32C2?
+
+pciwrited 40 68321217   # set sub vendor and product ID (write once register)
+
+pciwrited 44 3E0        # set port base to 3e0 (Pcmcia Legacy Address)
+pciord 4 7              # enable I/O and Memoy space (after setting address)
+
+ob 3e0 39               # set "365SL Step C" mode (bit 1 = 0, bit 0 = 1)
+ob 3e1 01               
+
+###################################
+##  THE FOLLOWING ARE BUG FIXES  ##
+###################################
+pciord 90 10000000      # disable ATA bus drive low (Rev.C Only)
+ob 3e0 02               # turn on 3.3v for both slots (Rev B & C Only)
+ob 3e1 18
+ob 3e0 42
+ob 3e1 18
+
+##################################################################
+##  SET PCI+ISA INTERRUPT MODE IF DEFAULT INITIALIZATION FOUND  ##
+##################################################################
+ob 3e0 3B               # set register 3B for interrupt mode
+ibfind 3e1 43           # is default setting?
+ob 3e1 C3               # if so, set PCI+ISA mode
+
+###########################################
+##  THE FOLLOWING IS FOR REFERENCE ONLY  ##
+###########################################
+# ob 3e1 03             # 03 = PCI interrupt mode
+# ob 3e1 40             # 40 = PC/PCI interrupt mode
+# ob 3e1 41             # 41 = PCI+EXT HARDWARE interrupt mode
+# ob 3e1 42             # 42 = PCI+PCI/WAY (serial) interrupt mode
+# ob 3e1 C3             # C3 = PCI+ISA PARALLEL interrupt mode
+
+# include INTA-INTD in serial IRQ stream, if required
+# pciorb 92 1          
+
+# configure controller to generate RI_OUT# on IRQ15 pin
+# ob 3e0 3                # enable RI# --> RI_OUT# function
+# orb 3e1 80
+# ob 3e0 39               # enable RI_OUT# function
+# orb 3e1 80
+# pciord 90 F             # configure IRQ15 pin for RI_OUT# pin
