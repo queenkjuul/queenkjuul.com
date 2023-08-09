@@ -26,11 +26,34 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  queenkjuul
+paginate: 4
+pagination_path: /pages/page:num
+show_excerpts: false
+show_categories: true
 
 # Build settings
 theme: jekyll-98
-# plugins:
-  # - jekyll-feed
+plugins:
+  - jekyll-paginate
+
+jekyll-98:
+  site_links:
+    - title: 'Archives'
+      url: https://www.queenkjuul.com/archive
+      icon: archive
+      target: _blank
+      alt: 'Retro computing file archive'
+
+    - title: 'Request Plex'
+      url: https://request.queenkjuul.com
+      icon: document-media
+      target: _blank
+      alt: 'Submit Plex content requests'
+
+  social_links:
+    github: queenkjuul
+    youtube: queenkjuul69
+    twitch: queenkjuul
 
 # Exclude from processing.
 # The following items will not be processed, by default.

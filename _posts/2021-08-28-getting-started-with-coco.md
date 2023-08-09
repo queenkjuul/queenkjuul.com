@@ -9,6 +9,7 @@ categories: coco guides
 
 I just got a Tandy Color Computer 2, and I was rather frustrated by the lack of helpful information for someone who's never seen a CoCo before in their lives. Don't get me wrong, there is a *ton* of information about the CoCo out there, but nothing that's quite like the "okay so you've used old computers before but you just want to know why your CLOAD command isn't working" guide that I was looking for. This guide will be a little more basic than what I was looking for, because I was already familiar with many of the barebones basics, but this should be a useful guide for people looking for a one-stop-shop to getting their new CoCo up and running. To my knowledge the information here applies equally to all 3 CoCo models, but bear in mind I have only ever used the Coco 2.
 
+{:.tree-view}
 - [Getting Started with the Tandy Color Computer](#getting-started-with-the-tandy-color-computer)
   - [Connections](#connections)
     - [TV](#tv)
@@ -190,6 +191,7 @@ Use `BREAK` to exit the program.
 
 ## Links
 
+{:.tree-view}
 - [Joystick calibration program (WAV)](../archive/coco/joytest.zip)
 - [Color Computer Archive Manuals Section](https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/)
   - Color Computer [1/2/3] Operation Manual
