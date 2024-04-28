@@ -4,7 +4,7 @@ title:  "Keydata Keynote MP-478 DOS/95 Laptop"
 date:   2020-11-18 12:52:08 -0500
 categories: dos keynote
 ---
-# Yes, Keynote....  My adventures with a vintage laptop
+## Yes, Keynote....  My adventures with a vintage laptop
 
 ![Keydata Keynote advertisement from 1997 featuring a woman in all black leather and sunglasses speaking on a cell phone saying "YES, Keynote..." in a text bubble. Text on the page reads "With this much computing power, even our competition knows you should buy it! Custom Configure your Keynote up to Intel Pentium II Processor 400MHZ, 15" XGA TFT, Plus DVD and all the smart bay choices!"](/archive/keynote/yesnote-530w.jpg)
 
