@@ -1,10 +1,16 @@
+---
+layout: post
+title:  "Keydata Keynote MP-478 Tech Specs"
+date:   2020-12-08 12:52:08 -0500
+categories: dos keynote
+---
 # Keydata Keynote MP-978
 
 ## Also sold as  Chicony MP-978, FutureTec FM9700XL, Chem USA ChemBook 9780
 
 First released in late 1997
 
-![Image of a Keydata Keynote MP-978 14.1" Pentium MMX laptop](../archive/keynote/keydata1.jpg)
+![Image of a Keydata Keynote MP-978 14.1" Pentium MMX laptop](/archive/keynote/keydata1.jpg)
 
 - [Keydata Keynote MP-978](#keydata-keynote-mp-978)
   - [Also sold as  Chicony MP-978, FutureTec FM9700XL, Chem USA ChemBook 9780](#also-sold-as--chicony-mp-978-futuretec-fm9700xl-chem-usa-chembook-9780)
@@ -18,7 +24,7 @@ First released in late 1997
     - [USB](#usb)
     - [Audio](#audio)
     - [Trackpad](#trackpad)
-  - [MS-DOS [+ WIN 3x ]](#ms-dos--win-3x-)
+  - [MS-DOS \[+ WIN 3x \]](#ms-dos--win-3x-)
     - [Audio](#audio-1)
     - [CDROM](#cdrom)
     - [Trackpad](#trackpad-1)

@@ -5,30 +5,30 @@ date:   2021-08-28 12:52:08 -0500
 categories: coco guides
 ---
 
-# Getting Started with the Tandy Color Computer
+## Getting Started with the Tandy Color Computer
 
 I just got a Tandy Color Computer 2, and I was rather frustrated by the lack of helpful information for someone who's never seen a CoCo before in their lives. Don't get me wrong, there is a *ton* of information about the CoCo out there, but nothing that's quite like the "okay so you've used old computers before but you just want to know why your CLOAD command isn't working" guide that I was looking for. This guide will be a little more basic than what I was looking for, because I was already familiar with many of the barebones basics, but this should be a useful guide for people looking for a one-stop-shop to getting their new CoCo up and running. To my knowledge the information here applies equally to all 3 CoCo models, but bear in mind I have only ever used the Coco 2.
 
 {:.tree-view}
 - [Getting Started with the Tandy Color Computer](#getting-started-with-the-tandy-color-computer)
-  - [Connections](#connections)
-    - [TV](#tv)
-    - [Cassette Port](#cassette-port)
-      - [Actual Cassettes](#actual-cassettes)
-      - [Connecting to computer/phone](#connecting-to-computerphone)
-      - [Building a cassette cable](#building-a-cassette-cable)
-  - [Loading Software](#loading-software)
-    - [FM ERROR](#fm-error)
-    - [IO ERROR](#io-error)
-    - [SN ERROR](#sn-error)
-    - [Troubleshooting](#troubleshooting)
-  - [Running Software](#running-software)
-  - [Color BASIC](#color-basic)
-    - [Commands](#commands)
-    - [Programming](#programming)
-  - [Joysticks](#joysticks)
-    - [Calibrating Joysticks](#calibrating-joysticks)
-  - [Links](#links)
+- [Connections](#connections)
+  - [TV](#tv)
+  - [Cassette Port](#cassette-port)
+    - [Actual Cassettes](#actual-cassettes)
+    - [Connecting to computer/phone](#connecting-to-computerphone)
+    - [Building a cassette cable](#building-a-cassette-cable)
+- [Loading Software](#loading-software)
+  - [FM ERROR](#fm-error)
+  - [IO ERROR](#io-error)
+  - [SN ERROR](#sn-error)
+  - [Troubleshooting](#troubleshooting)
+- [Running Software](#running-software)
+- [Color BASIC](#color-basic)
+  - [Commands](#commands)
+  - [Programming](#programming)
+- [Joysticks](#joysticks)
+  - [Calibrating Joysticks](#calibrating-joysticks)
+- [Links](#links)
 
 ## Connections
 
@@ -56,7 +56,7 @@ You'll need a 5-pin DIN connector. You can buy just the plugs on eBay, which ten
 
 Follow the diagram, note that 3.2mm = 3.5mm, and that you can use stereo plugs as long as you wire to the tips. Ignore the remote plug, and note which plug is data out and data in. If you need a remote plug for use with a Tandy deck, you probably can't use a MIDI cable as most only have 3 conductors. Connect the DATA_OUT plug to your computer's line in/mic jack, and the DATA_IN plug to your computer's headphone jack.
 
-![Tandy CoCo Cassette Cable Diagram](../archive/coco/cassette-cable-diagram.jpg)
+![Tandy CoCo Cassette Cable Diagram](/archive/coco/cassette-cable-diagram.jpg)
 
 ## Loading Software
 
