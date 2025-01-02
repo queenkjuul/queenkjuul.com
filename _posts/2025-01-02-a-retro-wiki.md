@@ -4,8 +4,8 @@ title: A Retro-Accessible Wiki
 date: 2025-01-02 06:04
 category: 
 author: qkj
-tags: []
-summary: 
+categories: blog
+excerpt: "Building a knolwedge base for retro computers"
 ---
 
 I find myself spending inordinate amounts of time trawling through ancient forum posts and file archives hunting down obscure drivers, patches, registry hacks, installation instructions, and various other pieces of information related to getting ancient hardware and software working correctly. I think to myself, if only I could compile this information somewhere where it was easy to find, with direct downloads to the relevant software? Even better, what if it could be accessed directly from retro machines, so I could upload notes and files as I'm working on them? 
