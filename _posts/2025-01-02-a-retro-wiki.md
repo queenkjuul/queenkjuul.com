@@ -2,7 +2,6 @@
 layout: post
 title: A Retro-Accessible Wiki
 date: 2025-01-02 06:04
-category: 
 author: qkj
 categories: blog
 excerpt: "Building a knolwedge base for retro computers"
