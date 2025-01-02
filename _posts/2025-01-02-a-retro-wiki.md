@@ -24,7 +24,7 @@ So the goal is IE4+, which should mean Windows 3+ and at least Mac OS 8+. I hadn
 
 I could, of course, write my own app from scratch. I could use SvelteKit to render pages server-side, and as long as I stick to simple old-school form submission, everything should work without too many issues. This has the advantage of giving me complete control over the application and how it works and how it looks, at the considerable expense of taking a huge amount of my time. To me, this mostly makes it a no-go. Part of the idea here is something that is simple to get up and running, so I can start saving files and notes before I forget about them and lose track of the original download locations.
 
-I then tested out a few off-the-shelf modern Wiki solutions to see which ones would render in old browsers. Nothing worked with IE3, predictably, and most things didn't work on IE4 either. [DokuWiki](https://dokuwiki.org) worked great on IE5, but caused IE4 to completely crash. [Jingo](https://github.com/claudioc/jingo) worked pretty well, with the login and edit features both working correctly on IE4, though the layout is somewhat broken. Still, it was promising, as it would let me have a somewhat-functional site up and running almost immediately. I also appreciate that the site content is kept as a Git repo, making it easy to mirror, and is kept entirely in native Markdown files.
+I then tested out a few off-the-shelf modern Wiki solutions to see which ones would render in old browsers. Nothing worked with IE3, predictably, and most things didn't work on IE4 either. [DokuWiki](https://dokuwiki.org) worked great on IE5, but caused IE4 to completely crash. [Jingo](https://github.com/claudioc/jingo) worked pretty well, with the login, search, and edit features all working correctly on IE4, though the layout is somewhat broken. Still, it was promising, as it would let me have a somewhat-functional site up and running almost immediately. I also appreciate that the site content is kept as a Git repo, making it easy to mirror, and is kept entirely in native Markdown files.
 
 ## It's Forkin' Time
 
@@ -32,4 +32,4 @@ Jingo does a few things I do not like, though. The Toolbox is my first gripe. I 
 
 So I've decided to work on a fork of Jingo I'm tentatively calling jingo-basic, which strips out a lot of the styling and simplifies some of the features. I think it'd be cool if I could make the app easily theme-able in the process, but I'll settle for essentially converting it into an unstyled Wiki platform.
 
-![Jingo on IE4 on WfW 3.11](../archive/wiki/jingo-ie4.png)
+![Jingo on IE4 on WfW 3.11](/archive/wiki/jingo-ie4.png)
