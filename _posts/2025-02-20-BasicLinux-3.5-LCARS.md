@@ -2,11 +2,13 @@
 layout: post
 title: BasicLinux 3.5 LCARS LiveCD
 date: 2025-02-20 01:19
-category: 
+categories: blog DOS linux 
 author: 
 tags: [DOS, retro, linux]
-summary: A Linux LiveCD that runs on a 386 with 4MB RAM
+excerpt: A Linux LiveCD that runs on a 386 with 4MB RAM
 ---
+
+![BasicLinux 3.5 LCARS "running" in 3MB of RAM](/archive/pcemfetch.png)
 
 A few weeks ago, the good people at [FreeGeek Chicago](freegeekchi.org) hooked me up with a really sweet "pizza box" 386, in a slick black livery with matching new-old-stock mechanical keyboard. This thing checked every box I could have for a 386 - a Turbo button, a front-panel CPU speed readout, a 40MHz DX CPU...it was a great deal. This thing is quite cool, except for its half-16-bit-half-8-bit riser card, which I am modifying to be fully 16-bit sockets. C'est la vie.
 
