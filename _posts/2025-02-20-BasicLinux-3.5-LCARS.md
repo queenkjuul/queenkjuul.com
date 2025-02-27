@@ -8,6 +8,8 @@ tags: [DOS, retro, linux]
 excerpt: A Linux LiveCD that runs on a 386 with 4MB RAM
 ---
 
+## *[All BasicLinux 3.5 LCARS files are located at the github repo](https://github.com/queenkjuul/basiclinux-lcars)*
+
 ![BasicLinux 3.5 LCARS "running" in 3MB of RAM](/archive/pcemfetch.png)
 
 A few weeks ago, the good people at [FreeGeek Chicago](freegeekchi.org) hooked me up with a really sweet "pizza box" 386, in a slick black livery with matching new-old-stock mechanical keyboard. This thing checked every box I could have for a 386 - a Turbo button, a front-panel CPU speed readout, a 40MHz DX CPU...it was a great deal. This thing is quite cool, except for its half-16-bit-half-8-bit riser card, which I am modifying to be fully 16-bit sockets. C'est la vie.
@@ -28,6 +30,8 @@ If only I had a Linux LiveCD that could run on a machine this old...
 
 ## A ray of hope
 
+I spent a lot of time trying to find the right solution. The original DamnSmallLinux needs a 486 and 16MB of RAM, so it couldn't quite help me. PuppyLinux hasn't supported 386-class CPUs in over 15 years. "Modern" LiveCDs, even going back 20 years, generally require substantial amounts of RAM by 90s standards, like 64MB or 128MB (and I remember how painful Ubuntu 5.10 LiveCD was on 128MB!). BlueFLOPS has saved my ass in the past several times, and I keep a pair of BlueFLOPS floppies on hand, but even that recommends 16MB as the bare minimum, and booting it from floppy does take something like forever.
+
 Enter [BasicLinux](https://distro.ibiblio.org/baslinux/), a 25-year-old project used for booting Linux on 35-year-old hardware. While I generally would have preferred to use something more modern, Linux support for *actual* i386 processors didn't actually last that long, despite the "i386" moniker sticking around for a long time. Any modern 32-bit Linux distro is likely to require a 486 or better, with many more only working on Pentium MMX or even Pentium III SSE chips. Almost more importantly, even a typical distro from 25 years ago - one that likely did actually support 386-class CPUs - would require more than the 8MB of RAM installed in this machine. This would absolutely be the case if you wanted to run a full desktop, but it was even possible you could have problems booting a LiveCD at all with that little RAM. Most "small" distros of the era like DamnSmall or Puppy expected to run from a read-write RAM disk, and 8MB just wouldn't cut it.
 
 BasicLinux, though, was designed specifically for the worst-case 8MB 386 scenario in mind. In fact, it claims to run in just 3MB (with CDROM drivers, my LiveCD will boot in 3MB, and then crash for lack of memory when calling `ls`). Based on Slackware 4.0, "BL3" as its third version was known in shorthand, provided a tiny 2MB root filesystem image which could be transferred to an MS-DOS disk by floppy, and then booted from there. The root filesystem was just an ext2 image file, stored on the MS-DOS partition. The bootloader was a DOS program called "LOADLIN". The whole system could just live in a folder on your DOS disk, and you could fire it up as needed. There were a dozen or two "official" BasicLinux packages, and a full set of kernel modules to cover most common hardware of the era. On top of all that, the documentation indicated that "most" Slackware 4 packages would just work with the provided kernel.
@@ -47,6 +51,20 @@ It turns out, though, that X won't run without being able to write to a lock fil
 Next, I expanded the root image to 100MB, and started installing packages. I quickly realized that 100MB would not be enough if I wanted to cram all of the "official" BasicLinux packages and modules, which I did. I also went through the Slackware 4.0 repo and installed a selection of those packages. Eventually, I settled on 300MB for the root filesystem (all but about 20MB of which is used), which leaves just enough space for the Slackware package repo, all Slackware 4 `contrib` packages (except for `xemacs`), the 2.2.26 kernel headers, Opera 7 binaries, and the original BasicLinux floppy images and documentation. It's not that I have something against `xemacs`, it's just that 60MB for one package wasn't worth it, and for compatibility's sake I wanted to keep this to a 650MB CD-R, not a 700MB.
 
 Hours and hours of work later, I've rewritten the init script `/etc/rc` to read kernel command line arguments and automatically load certain drivers, I've settled on a solid set of applications providing a remarkably fully-featured desktop environment, I've written a second `initrd` which lets you load SCSI drivers from floppy disk at boot time, and I've played two games of Freecell within the LiveCD (where my loss stats won't be saved).
+
+## Getting way too carried away
+
+Before I knew it, once I had a stable system, I started throwing everything at the wall - trying to find more games, testing out new WMs, trying to build newer versions of Tk/Tcl to include more tiny GUI apps, installing full X servers and additional libraries... Most of this didn't work out for various reasons (mostly that building ancient software from source is just annoying), but whether it was successful or not wasn't really the problem.
+
+The thing was, I was losing sight of the scope here.
+
+For "newer" 486+ systems with ample RAM, there's old versions of DamnSmallLinux or Puppy. Slackware 4 actually did ship a LiveCD, but it's an even older kernel, but it also requires at least 16MB of RAM to boot, and is terrifyingly slow on so little hardware.
+
+For a permanent hard disk installation with a big package set, you could just use the full version of Slackware 9, or any other vintage distro like Red Hat, OpenLinux, or Mandrake that still supports 386.
+
+This is *the* Linux LiveCD for 386-class machines with practically no RAM. It needs to be compatible, compact, and useful. It needs to be a quick and easy way for me to boot into a Linux environment on my vintage computers. It doesn't need to be a replacement for Mandrake or Fedora or Debian.
+
+So, while I couldn't help but include an extra couple Tk/Tcl games I found that live in just a few dozen KB, I've given up on trying to upgrade dependencies and install some more "serious" software (like VNC, or a more complete desktop such as Xfce). The current size - a single disc, including package repo - will continue to be the standard, though I am seriously considering a 2-disc version as well (650MB root image, separate package repo disc) where I could include even more add-ons and even more pre-installed software, but this would make it tricky to install to a bootable MS-DOS partition (which on many old machines must be <512MB in size). Or, I could go the DamnSmall route and cut the dev tools and source code from the root filesystem to shrink it a bit and fit more packages. Time will tell.
 
 ## It's a start
 
